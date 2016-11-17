@@ -3,16 +3,15 @@ const restify = require('restify')
 const server = restify.createServer()
 const omdb = require('./modules/film')
 
-server.use(restify.fullResponse())
+server.use(restify.queryParser())
 server.use(restify.bodyParser())
-server.use(restify.authorizationParser())
+server.use(restify.acceptParser(server.acceptable))
 
 const defaultPort = 8080
 
-server.get('/?n=:name', function(req, res, next) {
-    const movieName = req.params.name;
-    console.log(req.params)
-    omdb.GetMovie(movieName, '2003', function(err, result){
+server.get('/', function(req, res, next) {
+    console.log(req.params.n)
+    omdb.GetMovie(req.params.n, req.params.y, function(err, result){
         if(err){
             console.log(err)
         }else{
