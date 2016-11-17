@@ -9,9 +9,29 @@ server.use(restify.acceptParser(server.acceptable))
 
 const defaultPort = 8080
 
-server.get('/', function(req, res, next) {
-    console.log(req.params.n)
-    omdb.GetMovie(req.params.n, req.params.y, function(err, result){
+server.get('/search', function(req, res, next) {
+    console.log(req.params.s)
+    omdb.SearchMovie(req.params.s, function(err, result){
+        if(err){
+            console.log(err)
+        }else{
+            res.send(result)
+        }
+    })
+})
+
+server.get('/movie', function(req, res, next) {
+    let input
+    let type
+    if(req.params.n !== undefined){
+        input = req.params.n
+        type = 't'
+    }
+    else {
+        input = req.params.i
+        type = 'i'
+    }
+    omdb.GetMovie(input, type, req.params.y, function(err, result){
         if(err){
             console.log(err)
         }else{

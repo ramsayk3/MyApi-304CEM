@@ -1,12 +1,20 @@
 const request = require("request");
 
-exports.GetMovie = function(movieName, Year, callback){
-    console.log('test')
-    const options = { method: 'GET',
+
+exports.SearchMovie = function(movieSearch, callback) {
+    const search = { method: 'GET',
         url: 'http://www.omdbapi.com/',
-        qs: { t: movieName, y: Year, plot: 'full', r: 'json' },
+        qs: { s: movieSearch, r: 'json' },
     }
-    request(options, function (error, response, body) {
+  request(search, function (error, response, body) {
+        if (error) throw new Error(error);
+        return callback(null, JSON.parse(body));
+  })
+};
+
+exports.GetMovie = function(input, type, year, callback){
+    request(`http://www.omdbapi.com/?${type}=${input}&y=${year}`,
+            function (error, response, body) {
         if (error) throw new Error(error);
         return callback(null, JSON.parse(body))
     })
