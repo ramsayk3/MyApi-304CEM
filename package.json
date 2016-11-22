@@ -2,18 +2,22 @@
   "name": "304webapi",
   "version": "1.0.0",
   "description": "nodejs api",
-  "main": "index.js",
+  "main": "server.js",
+  "scripts": {
+    "test": "node_modules/.bin/jasmine-node spec --color --verbose --captureExceptions --autotest --watch ."
+  },
   "dependencies": {
     "chai": "^3.5.0",
+    "jasmine": "^2.5.2",
     "mocha": "^3.1.2",
     "node": "^0.0.0",
+    "nodemon": "^1.11.0",
     "request": "^2.78.0",
     "require": "^2.4.20",
     "restify": "^4.2.0"
   },
-  "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "devDependencies": {
+    "jasmine-node": "^1.14.5"
   },
   "author": "Kai Ramsay",
   "license": "ISC"

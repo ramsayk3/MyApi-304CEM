@@ -11,7 +11,7 @@ const defaultPort = 8080
 
 server.get('/search', function(req, res, next) {
     console.log(req.params.s)
-    omdb.SearchMovie(req.params.s, function(err, result){
+    omdb.searchMovie(req.params.s, function(err, result){
         if(err){
             console.log(err)
         }else{
@@ -31,7 +31,7 @@ server.get('/movie', function(req, res, next) {
         input = req.params.i
         type = 'i'
     }
-    omdb.GetMovie(input, type, req.params.y, function(err, result){
+    omdb.getMovie(input, type, req.params.y, function(err, result){
         if(err){
             console.log(err)
         }else{
