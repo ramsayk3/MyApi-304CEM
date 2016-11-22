@@ -1,6 +1,6 @@
 'use strict'
 const film = require('../modules/film')
-describe('film api', function () {
+describe('Film Module Testing', function () {
     it('should search skyfall', function (done) {
         film.searchMovie('skyfall', function (err, searchResult) {
             expect(err).toBe(null)
@@ -22,6 +22,14 @@ describe('film api', function () {
             expect(err).toBe(null)
             expect(searchResult.Title).toBe('Toy Story 2')
             expect(searchResult.Year).toBe('1999')
+            done()
+        })
+    })
+    it('Should return an error', function (done) {
+        film.getMovie('','', '', function (err, searchResult) {
+            expect(err).toBe(null)
+            expect(searchResult.Response).toBe('False')
+            expect(searchResult.Error).toContain('wrong')
             done()
         })
     })
