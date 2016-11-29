@@ -41,11 +41,7 @@ server.get('/movie', function(req, res, next) {
     })
 })
 
-server.get('/favourites',  favourites.list)
-server.post('/favourites', favourites.validate, favourites.add) 
-server.get('/favourites/:id', favourites.get) 
-server.put('/favourites/:id', favourites.validate, favourites.update)
-server.del('/favourites/:id', favourites.delete)
+
 
 const port = process.env.PORT || defaultPort
 server.listen(port, function(err) {
