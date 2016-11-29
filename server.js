@@ -2,7 +2,7 @@
 const restify = require('restify')
 const server = restify.createServer()
 const omdb = require('./modules/film')
-const favourites = require('./modules/Database')
+const movieDb = require('../Schema/Schema')
 
 server.use(restify.queryParser())
 server.use(restify.bodyParser())
@@ -39,6 +39,17 @@ server.get('/movie', function(req, res, next) {
             res.send(result)
         }
     })
+})
+
+const film = new movieDB({title:"",year:"",plot:"",imdbRating:"",imdbID:""})
+
+film.save(function (err){
+    if (err) {
+        return err;
+    }
+    else {
+        console.log("Film Added")
+    }
 })
 
 
