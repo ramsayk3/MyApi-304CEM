@@ -3,6 +3,7 @@ const restify = require('restify')
 const server = restify.createServer()
 const omdb = require('./modules/film')
 const movieDb = require('../Schema/Schema')
+const persist = require('./modules/persistence')
 
 server.use(restify.queryParser())
 server.use(restify.bodyParser())
@@ -41,15 +42,16 @@ server.get('/movie', function(req, res, next) {
     })
 })
 
-const film = new movieDB({title:"",year:"",plot:"",imdbRating:"",imdbID:""})
-
-film.save(function (err){
-    if (err) {
-        return err;
-    }
-    else {
-        console.log("Film Added")
-    }
+server.post('/favourites', function (req, res, next) {
+    console.log('adding ' + '' + req.params.i)
+    omdb.addMovie(req.params.i, function (err, result) {
+        if (err) {
+            console.log(err)
+        }
+        else {
+            res.save(result)
+        }
+    })
 })
 
 
