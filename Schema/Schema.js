@@ -8,11 +8,11 @@ mongoose.Promise = global.Promise
 const schema = mongoose.Schema
 
 const movieSchema = new schema({
-    title: String,
-    year: Number,
-    plot: String,
-    imdbRating: Number,
-    imdbID: String   
+    Title: {type: String},
+    Year: {type: Number},
+    Plot: {type: String},
+    imdbRating: {type: Number},
+    imdbID: {type: String}   
 })
 
 exports.Movie = mongoose.model('Movie', movieSchema)
