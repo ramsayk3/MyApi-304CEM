@@ -52,3 +52,16 @@ exports.addMovie = function (imdbID, callback) {
         })
     })
 }
+exports.showFavourites = function(err, callback) {
+    console.log('Fetching the favourites movie list') 
+        schema.Movie.find({},function(err, movies){
+            if (err) {
+                console.log('could not fetch movies')
+                throw err
+            }
+            console.log(movies)
+            return callback(null,movies)
+            
+        })
+    }
+
