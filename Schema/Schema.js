@@ -12,7 +12,7 @@ const movieSchema = new schema({
     Year: {type: Number},
     Plot: {type: String},
     imdbRating: {type: Number},
-    imdbID: {type: String}   
+    imdbID: {type: Mixed}   
 })
 
 exports.Movie = mongoose.model('Movie', movieSchema)
