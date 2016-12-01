@@ -55,12 +55,20 @@ server.post('/favourites', function (req, res) {
         }
     })
 })
+server.get('/favourites', (req, res) => {
+    omdb.showFavourites(req, (err, data) => {
+        res.setHeader('accepts', 'GET, POST')
+        if (err) {
+            res.send(err)
+        }
+        else {
+            res.send(data)
+        }
+    })
+})
 
 
-server.get("/favourites", function (req, res, next) {
-    res.send("You will see all the products in the colection with this end point");
-    return next();
-});
+
 const port = process.env.PORT || defaultPort
 server.listen(port, function (err) {
     if (err) {
