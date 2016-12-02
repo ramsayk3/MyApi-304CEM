@@ -1,5 +1,6 @@
 'use strict'
 const schema = require('../Schema/Schema')
+const schema1 = require('../Schema/Schema').Movie
 const omdb = require('./film')
 exports.saveMovie = (movieData, callback) => {
     if (!'title' in movieData && !'year' in movieData && !'plot' in movieData && !'imdbRating' in movieData && !'imdbID' in movieData) {
@@ -13,34 +14,47 @@ exports.saveMovie = (movieData, callback) => {
         callback(null, movie)
     })
 }
-exports.retrieveFavourites = ((favouriteList, callback) => {
+/*exports.retrieveFavourites = ((favouriteList, callback) => {
     schema.Movie.find((err, docs) => {
         if (err) reject(new Error('database error'))
         if (!docs.length) reject(new Error("No movies in the list"))
         resolve(docs)
     })
 })
-
-exports.retrieveFavouritebyid = (req, res) => {
-    const id = req.params.id
-    
-    omdb.showFavouritebyid(id, (err, result)=>{
-        if (err) return res.send(400, err)
-        return res.send(result)
-    })
-    
-}
-
-
-/*
-exports.deleteFavourite = ((favouriteList, callback) => {
-    schema.Movie.remove((err, docs) => {
-        if (err){
-            callback(new Error('Could not delete movie'))
-        }
-        console.log('Deleted Movie')
-        callback(null,movie)
-        resolve(docs)
-    })
-})
 */
+exports.retrieveFavouritebyid = (ObjectId, callback) => {
+        schema1(`favourites/`, (err, movie) => {
+            if (err) return callback(err)
+            movie.find(ObjectId, (err, movie) => {
+                if (err) {
+                    return callback({
+                        message: 'Could not access list of movies'
+                    })
+                }
+                else if (!movie) {
+                    return callback({
+                        message: 'movie not found'
+                        , id: ObjectId
+                    })
+                }
+                else {
+                    return callback(null, {
+                        message: 'movie found'
+                        , movie: movie
+                    })
+                }
+            })
+        })
+    }
+    /*
+    exports.deleteFavourite = ((favouriteList, callback) => {
+        schema.Movie.remove((err, docs) => {
+            if (err){
+                callback(new Error('Could not delete movie'))
+            }
+            console.log('Deleted Movie')
+            callback(null,movie)
+            resolve(docs)
+        })
+    })
+    */
