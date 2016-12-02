@@ -38,7 +38,6 @@ exports.addMovie = function (imdbID, callback) {
             , Plot: json.Plot
             , imdbID: json.imdbID
         }
-    
         console.log('Adding movie to your favourites')
         db.saveMovie(json, function (err, movie) {
             console.log('attempt made')
@@ -52,16 +51,47 @@ exports.addMovie = function (imdbID, callback) {
         })
     })
 }
-exports.showFavourites = function(err, callback) {
-    console.log('Fetching the favourites movie list') 
-        schema.Movie.find({},function(err, movies){
+exports.showFavourites = function (err, callback) {
+    console.log('Fetching the favourites movie list')
+    schema.Movie.find({}, function (err, movies) {
+        if (err) {
+            console.log('could not fetch movies')
+            throw err
+        }
+        console.log(movies)
+        return callback(null, movies)
+    })
+}
+
+exports.showFavouritebyid = function (_id, callback) {
+    console.log('Fetching the favourites movie id')
+    schema.Movie.findOne({"_id" : ObjectId(`58415a304aae9141c0c32e0e`)}, function (err, movies) {
+        if (err) {
+            console.log('could not fetch movie')
+            throw err
+        }
+        console.log(movies)
+        return callback(null, movies)
+    })
+}
+
+
+
+
+
+
+
+
+/*
+exports.remove = function (imdbID, callback) {
+    schema.Movie.remove({imdbID:''})
+        , function (err, movies) {
             if (err) {
-                console.log('could not fetch movies')
+                console.log('could not delete movie')
                 throw err
             }
             console.log(movies)
-            return callback(null,movies)
-            
-        })
-    }
-
+            return callback(null, movies)
+        }
+}
+*/
