@@ -67,7 +67,8 @@ server.get('/favourites', (req, res) => {
     })
 })
 
-server.get('/favourites/:id', (req, res) => {
+server.get('/favourites:id', (req, res) => {
+    const id = req.params.id
     omdb.showFavouritebyid(req, (err, data) => {
         res.setHeader('accepts', 'GET, POST')
         if (err) {
