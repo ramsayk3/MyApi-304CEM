@@ -67,6 +67,18 @@ server.get('/favourites', (req, res) => {
     })
 })
 
+server.delete('/favourites:id', (req, res) => {
+    omdb.remove(req, (err, data) => {
+        res.setHeader('accepts', 'GET, DELETE')
+        if (err) {
+            res.send(err)
+        }
+        else {
+            res.send(data)
+        }
+    })
+})
+
 
 
 const port = process.env.PORT || defaultPort
