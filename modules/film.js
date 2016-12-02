@@ -1,6 +1,8 @@
 const request = require("request")
 const schema = require("../Schema/Schema.js")
 const db = require('./persistence.js')
+var ObjectId = require('mongodb').ObjectID
+
 exports.searchMovie = function (movieSearch, callback) {
     const search = {
         method: 'GET'
@@ -63,15 +65,19 @@ exports.showFavourites = function (err, callback) {
     })
 }
 
-exports.showFavouritebyid = function (_id, callback) {
-    console.log('Fetching the favourites movie id')
-    schema.Movie.findOne({"_id" : ObjectId(`58415a304aae9141c0c32e0e`)}, function (err, movies) {
+exports.showFavouritebyid = function (id, callback) {
+    console.log('Fetching the favourites movie '+ id)
+    db.retrieveFavouritebyid(function(movie){
+       schema.Movie.findOne({ObjectId: `58415a304aae9141c0c32e0e`}, function (err, doc) {
         if (err) {
             console.log('could not fetch movie')
             throw err
         }
-        console.log(movies)
-        return callback(null, movies)
+        console.log(doc)
+        return callback(null, doc) 
+    })
+
+
     })
 }
 
