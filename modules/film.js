@@ -62,15 +62,36 @@ exports.showFavourites = function (err, callback) {
         return callback(null, movies)
     })
 }
-exports.remove = function (err, callback) {
-    schema.Movie.find({
-        imdbID:
-    }.remove, function (err, movies) {
+
+exports.showFavouritebyid = function (_id, callback) {
+    console.log('Fetching the favourites movie id')
+    schema.Movie.findOne({"_id" : ObjectId(`58415a304aae9141c0c32e0e`)}, function (err, movies) {
         if (err) {
-            console.log('could not delete movie')
+            console.log('could not fetch movie')
             throw err
         }
         console.log(movies)
         return callback(null, movies)
     })
 }
+
+
+
+
+
+
+
+
+/*
+exports.remove = function (imdbID, callback) {
+    schema.Movie.remove({imdbID:''})
+        , function (err, movies) {
+            if (err) {
+                console.log('could not delete movie')
+                throw err
+            }
+            console.log(movies)
+            return callback(null, movies)
+        }
+}
+*/
