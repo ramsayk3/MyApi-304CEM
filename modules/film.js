@@ -65,20 +65,31 @@ exports.showFavourites = function (err, callback) {
     })
 }
 
-exports.showFavouritebyid = function (id, callback) {
-    console.log('Fetching the favourites movie '+ id)
-    db.retrieveFavouritebyid(function(movie){
-       schema.Movie.findOne({ObjectId: `58415a304aae9141c0c32e0e`}, function (err, doc) {
-        if (err) {
-            console.log('could not fetch movie')
-            throw err
-        }
-        console.log(doc)
-        return callback(null, doc) 
-    })
 
+exports.showFavouritebyid = function(err, callback) {
+	console.log('retrieving the film by id')
+	schema.Movie.find({"_id" : ObjectId("58415a304aae9141c0c32e0e")}, function(err, movies) {
+		if (err) {
+			console.log('error finding film')
+			throw err
+		}
+		// object of all the users
+  	console.log(movies)
+    return callback(null, movies)
+	})
+}
 
-    })
+exports.remove = function(err, callback) {
+	console.log('Deleting the film')
+	schema.Movie.remove({"_id" : ObjectId("58419fff1d518347e6a9f55c")}, function(err, movies) {
+		if (err) {
+			console.log('error finding film')
+			throw err
+		}
+		// object of all the users
+  	console.log(movies)
+    return callback(null, movies)
+	})
 }
 
 
