@@ -23,8 +23,9 @@ exports.saveMovie = (movieData, callback) => {
 })
 */
 exports.retrieveFavouritebyid = (ObjectId, callback) => {
-        schema1(`favourites/`, (err, movie) => {
+        schema1(`movies`, (err, movie) => {
             if (err) return callback(err)
+            console.log('working')
             movie.find(ObjectId, (err, movie) => {
                 if (err) {
                     return callback({
