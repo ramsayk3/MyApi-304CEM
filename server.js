@@ -67,7 +67,7 @@ server.get('/favourites', (req, res) => {
     })
 })
 
-server.get('/favourites:id', (req, res) => {
+server.get('/favourites/:id', (req, res) => {
     const id = req.params.id
     omdb.showFavouritebyid(req, (err, data) => {
         res.setHeader('accepts', 'GET, POST')
@@ -87,8 +87,8 @@ server.get('/favourites:id', (req, res) => {
 
 
 
-/*
-server.del('/favourites:id', (req, res) => {
+
+server.del('/favourites/:id', (req, res) => {
     omdb.remove(req, (err, data) => {
         res.setHeader('accepts', 'GET, DELETE')
         if (err) {
@@ -99,7 +99,6 @@ server.del('/favourites:id', (req, res) => {
         }
     })
 })
-*/
 
 
 const port = process.env.PORT || defaultPort
