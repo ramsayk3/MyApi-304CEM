@@ -2,7 +2,6 @@ const request = require("request")
 const schema = require("../Schema/Schema.js")
 const db = require('./persistence.js')
 var ObjectId = require('mongodb').ObjectID
-
 exports.searchMovie = function (movieSearch, callback) {
     const search = {
         method: 'GET'
@@ -53,61 +52,5 @@ exports.addMovie = function (imdbID, callback) {
         })
     })
 }
-exports.showFavourites = function (err, callback) {
-    console.log('Fetching the favourites movie list')
-    schema.Movie.find({}, function (err, movies) {
-        if (err) {
-            console.log('could not fetch movies')
-            throw err
-        }
-        console.log(movies)
-        return callback(null, movies)
-    })
-}
 
-
-exports.showFavouritebyid = function(id, callback) {
-	console.log('retrieving the film by id')
-	schema.Movie.find({imdbID : id}, function(err, movies) {
-		if (err) {
-			console.log('error finding film')
-			throw err
-		}
-  	console.log(movies)
-    return callback(null, movies)
-	})
-}
-
-exports.remove = function(id, callback) {
-	console.log('Deleting the film')
-	schema.Movie.remove({imdbID : id }, function(err, movies) {
-		if (err) {
-			console.log('error finding film')
-			throw err
-		}
-
-  	console.log(movies)
-    return callback(null, movies)
-	})
-}
-
-
-
-
-
-
-
-
-/*
-exports.remove = function (imdbID, callback) {
-    schema.Movie.remove({imdbID:''})
-        , function (err, movies) {
-            if (err) {
-                console.log('could not delete movie')
-                throw err
-            }
-            console.log(movies)
-            return callback(null, movies)
-        }
-}
-*/
+   
