@@ -14,48 +14,40 @@ exports.saveMovie = (movieData, callback) => {
         callback(null, movie)
     })
 }
-/*exports.retrieveFavourites = ((favouriteList, callback) => {
-    schema.Movie.find((err, docs) => {
-        if (err) reject(new Error('database error'))
-        if (!docs.length) reject(new Error("No movies in the list"))
-        resolve(docs)
+exports.showFavourites = function (err, callback) {
+    console.log('Fetching the favourites movie list')
+    schema.Movie.find({}, function (err, movies) {
+        if (err) {
+            console.log('could not fetch movies')
+            throw err
+        }
+        console.log(movies)
+        return callback(null, movies)
     })
-})
-*/
-exports.retrieveFavouritebyid = (ObjectId, callback) => {
-        schema1(`movies`, (err, movie) => {
-            if (err) return callback(err)
-            console.log('working')
-            movie.find(ObjectId, (err, movie) => {
-                if (err) {
-                    return callback({
-                        message: 'Could not access list of movies'
-                    })
-                }
-                else if (!movie) {
-                    return callback({
-                        message: 'movie not found'
-                        , id: ObjectId
-                    })
-                }
-                else {
-                    return callback(null, {
-                        message: 'movie found'
-                        , movie: movie
-                    })
-                }
-            })
-        })
-    }
-    /*
-    exports.deleteFavourite = ((favouriteList, callback) => {
-        schema.Movie.remove((err, docs) => {
-            if (err){
-                callback(new Error('Could not delete movie'))
-            }
-            console.log('Deleted Movie')
-            callback(null,movie)
-            resolve(docs)
-        })
+}
+exports.showFavouritebyid = function (id, callback) {
+    console.log('retrieving the film by id')
+    schema.Movie.find({
+        imdbID: id
+    }, function (err, movies) {
+        if (err) {
+            console.log('error finding film')
+            throw err
+        }
+        console.log(movies)
+        return callback(null, movies)
     })
-    */
+}
+exports.remove = function (id, callback) {
+    console.log('Deleting the film')
+    schema.Movie.remove({
+        imdbID: id
+    }, function (err, movies) {
+        if (err) {
+            console.log('error finding film')
+            throw err
+        }
+        console.log(movies)
+        return callback(null, movies)
+    })
+}

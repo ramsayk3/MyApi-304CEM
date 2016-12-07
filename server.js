@@ -56,7 +56,7 @@ server.post('/favourites', function (req, res) {
     })
 })
 server.get('/favourites', (req, res) => {
-    omdb.showFavourites(req, (err, data) => {
+    persist.showFavourites(req, (err, data) => {
         res.setHeader('accepts', 'GET, POST')
         if (err) {
             res.send(err)
@@ -69,7 +69,8 @@ server.get('/favourites', (req, res) => {
 
 server.get('/favourites/:id', (req, res) => {
     const id = req.params.id
-    omdb.showFavouritebyid(req, (err, data) => {
+    persist.showFavourites(req, (err, data) => {
+
         res.setHeader('accepts', 'GET, POST')
         if (err) {
             res.send(err)
@@ -80,6 +81,31 @@ server.get('/favourites/:id', (req, res) => {
     })
 })
 
+server.get('/favourites/:id', (req, res) => {
+    const id = req.params.id
+    persist.showFavouritebyid(req.params.id, (err, data) => {
+        res.setHeader('accepts', 'GET, POST')
+        if (err) {
+            res.send(err)
+        }
+        else {
+            res.send(data)
+        }
+    })
+})
+
+
+server.del('/favourites/:id', (req, res) => {
+    persist.remove(req.params.id, (err, data) => {
+        res.setHeader('accepts', 'GET, DELETE')
+        if (err) {
+            res.send(err)
+        }
+        else {
+            res.send(data)
+        }
+    })
+})
 
 
 
