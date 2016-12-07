@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">22.73% </span>
+        <span class="strong">20% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>5/22</span>
+        <span class='fraction'>7/35</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
@@ -30,14 +30,14 @@
         <span class='fraction'>0/15</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>0/0</span>
+        <span class='fraction'>0/6</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">23.81% </span>
+        <span class="strong">20% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>5/21</span>
+        <span class='fraction'>7/35</span>
       </div>
     </div>
   </div>
@@ -95,15 +95,7 @@
 50
 51
 52
-53
-54
-55
-56
-57
-58
-59
-60
-61</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+53</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-yes">1×</span>
@@ -119,49 +111,41 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict'
 const schema = require('../Schema/Schema')
@@ -179,57 +163,49 @@ exports.saveMovie = (movieData, callback) =&gt; {
 <span class="cstat-no" title="statement not covered" >        callback(null, movie)</span>
     })
 }
-/*exports.retrieveFavourites = ((favouriteList, callback) =&gt; {
-    schema.Movie.find((err, docs) =&gt; {
-        if (err) reject(new Error('database error'))
-        if (!docs.length) reject(new Error("No movies in the list"))
-        resolve(docs)
+exports.showFavourites = <span class="fstat-no" title="function not covered" >function (err, callback) {</span>
+<span class="cstat-no" title="statement not covered" >    console.log('Fetching the favourites movie list')</span>
+<span class="cstat-no" title="statement not covered" >    schema.Movie.find({}, <span class="fstat-no" title="function not covered" >function (err, movies) {</span></span>
+<span class="cstat-no" title="statement not covered" >        if (err) {</span>
+<span class="cstat-no" title="statement not covered" >            console.log('could not fetch movies')</span>
+<span class="cstat-no" title="statement not covered" >            throw err</span>
+        }
+<span class="cstat-no" title="statement not covered" >        console.log(movies)</span>
+<span class="cstat-no" title="statement not covered" >        return callback(null, movies)</span>
     })
-})
-*/
-exports.retrieveFavouritebyid = (ObjectId, callback) =&gt; {
-<span class="cstat-no" title="statement not covered" >        schema1(`movies`, (err, movie) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >            if (err) <span class="cstat-no" title="statement not covered" >return callback(err)</span></span>
-<span class="cstat-no" title="statement not covered" >            console.log('working')</span>
-<span class="cstat-no" title="statement not covered" >            movie.find(ObjectId, (err, movie) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >                if (err) {</span>
-<span class="cstat-no" title="statement not covered" >                    return callback({</span>
-                        message: 'Could not access list of movies'
-                    })
-                }
-                else <span class="cstat-no" title="statement not covered" >if (!movie) {</span>
-<span class="cstat-no" title="statement not covered" >                    return callback({</span>
-                        message: 'movie not found'
-                        , id: ObjectId
-                    })
-                }
-                else {
-<span class="cstat-no" title="statement not covered" >                    return callback(null, {</span>
-                        message: 'movie found'
-                        , movie: movie
-                    })
-                }
-            })
-        })
-    }
-    /*
-    exports.deleteFavourite = ((favouriteList, callback) =&gt; {
-        schema.Movie.remove((err, docs) =&gt; {
-            if (err){
-                callback(new Error('Could not delete movie'))
-            }
-            console.log('Deleted Movie')
-            callback(null,movie)
-            resolve(docs)
-        })
+}
+exports.showFavouritebyid = <span class="fstat-no" title="function not covered" >function (id, callback) {</span>
+<span class="cstat-no" title="statement not covered" >    console.log('retrieving the film by id')</span>
+<span class="cstat-no" title="statement not covered" >    schema.Movie.find({</span>
+        imdbID: id
+    }, <span class="fstat-no" title="function not covered" >function (err, movies) {</span>
+<span class="cstat-no" title="statement not covered" >        if (err) {</span>
+<span class="cstat-no" title="statement not covered" >            console.log('error finding film')</span>
+<span class="cstat-no" title="statement not covered" >            throw err</span>
+        }
+<span class="cstat-no" title="statement not covered" >        console.log(movies)</span>
+<span class="cstat-no" title="statement not covered" >        return callback(null, movies)</span>
     })
-    */</pre></td></tr>
+}
+exports.remove = <span class="fstat-no" title="function not covered" >function (id, callback) {</span>
+<span class="cstat-no" title="statement not covered" >    console.log('Deleting the film')</span>
+<span class="cstat-no" title="statement not covered" >    schema.Movie.remove({</span>
+        imdbID: id
+    }, <span class="fstat-no" title="function not covered" >function (err, movies) {</span>
+<span class="cstat-no" title="statement not covered" >        if (err) {</span>
+<span class="cstat-no" title="statement not covered" >            console.log('error finding film')</span>
+<span class="cstat-no" title="statement not covered" >            throw err</span>
+        }
+<span class="cstat-no" title="statement not covered" >        console.log(movies)</span>
+<span class="cstat-no" title="statement not covered" >        return callback(null, movies)</span>
+    })
+}</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Tue Dec 06 2016 17:48:16 GMT+0000 (GMT)
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Wed Dec 07 2016 02:41:11 GMT+0000 (GMT)
 </div>
 </div>
 <script src="../prettify.js"></script>
