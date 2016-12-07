@@ -33,5 +33,14 @@ describe('Film Module Testing', function () {
             done()
         })
     })
+    xit('Should add star wars to my db', function (done) {
+        film.addMovie('tt0387563', function (err, searchResult) {
+            expect(err).toBe(null)
+            expect(searchResult.__v).toBe(0)
+            expect(searchResult.Title).toBe("Saving 'Star Wars'")
+            expect(searchResult.Year).toBe(2004)
+            done()
+        })
+    })
     
 })
