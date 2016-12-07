@@ -33,12 +33,18 @@ describe('Film Module Testing', function () {
             done()
         })
     })
-    xit('Should add star wars to my db', function (done) {
-        film.addMovie('tt0387563', function (err, searchResult) {
+    it('Should add toy story 2 to my db', function (done) {
+        film.addMovie('tt0120363', function (err, searchResult) {
             expect(err).toBe(null)
-            expect(searchResult.__v).toBe(0)
-            expect(searchResult.Title).toBe("Saving 'Star Wars'")
-            expect(searchResult.Year).toBe(2004)
+            expect(searchResult.Title).toBe('Toy Story 2')
+            expect(searchResult.Year).toBe(1999)
+            done()
+        })
+    })
+    it('Should return undefined', function (done) {
+        film.addMovie('', function (err, searchResult) {
+            expect(err).toBe(null)
+            expect(searchResult.Response).toBe(undefined)
             done()
         })
     })
