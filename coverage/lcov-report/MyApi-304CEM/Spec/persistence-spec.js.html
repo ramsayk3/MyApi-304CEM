@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Code coverage report for MyApi-304CEM/Spec/Server-spec.js</title>
+    <title>Code coverage report for MyApi-304CEM/Spec/persistence-spec.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -16,13 +16,13 @@
 <div class='wrapper'>
   <div class='pad1'>
     <h1>
-      <a href="../../index.html">all files</a> / <a href="index.html">MyApi-304CEM/Spec/</a> Server-spec.js
+      <a href="../../index.html">all files</a> / <a href="index.html">MyApi-304CEM/Spec/</a> persistence-spec.js
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>0/13</span>
+        <span class='fraction'>0/11</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -32,12 +32,12 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>0/7</span>
+        <span class='fraction'>0/5</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>0/13</span>
+        <span class='fraction'>0/11</span>
       </div>
     </div>
   </div>
@@ -60,13 +60,9 @@
 15
 16
 17
-18
-19
-20
-21</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+18</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -74,33 +70,28 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict'
-<span class="cstat-no" title="statement not covered" >const request = require("request")</span>
-<span class="cstat-no" title="statement not covered" >const base_url = "http://localhost:8080/"</span>
-<span class="cstat-no" title="statement not covered" >describe("Server Testing", <span class="fstat-no" title="function not covered" >function () {</span></span>
-<span class="cstat-no" title="statement not covered" >    describe("GET /search", <span class="fstat-no" title="function not covered" >function () {</span></span>
-<span class="cstat-no" title="statement not covered" >        it("returns status code 200", <span class="fstat-no" title="function not covered" >function (done) {</span></span>
-<span class="cstat-no" title="statement not covered" >            request.get(base_url + 'search?=Saw"', <span class="fstat-no" title="function not covered" >function (error, response, body) {</span></span>
-<span class="cstat-no" title="statement not covered" >                expect(response.statusCode).toBe(200);</span>
-<span class="cstat-no" title="statement not covered" >                done()</span>
-            })
+<span class="cstat-no" title="statement not covered" >const persist = require('../modules/persistence')</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >describe('Persistence Module Testing', <span class="fstat-no" title="function not covered" >function (){</span></span>
+<span class="cstat-no" title="statement not covered" >    it('Should return favourites',<span class="fstat-no" title="function not covered" >function (done){</span></span>
+<span class="cstat-no" title="statement not covered" >        persist.showFavourites('',<span class="fstat-no" title="function not covered" >function (err, searchResult){</span></span>
+<span class="cstat-no" title="statement not covered" >        expect(err).toBe(null)</span>
+<span class="cstat-no" title="statement not covered" >        done()  </span>
         })
     })
-<span class="cstat-no" title="statement not covered" >    describe("GET /madeup", <span class="fstat-no" title="function not covered" >function () {</span></span>
-<span class="cstat-no" title="statement not covered" >        it("returns status code 404 not found", <span class="fstat-no" title="function not covered" >function (done) {</span></span>
-<span class="cstat-no" title="statement not covered" >            request.get(base_url + 'madeup', <span class="fstat-no" title="function not covered" >function (error, response, body) {</span></span>
-<span class="cstat-no" title="statement not covered" >                expect(response.statusCode).toBe(404);</span>
-<span class="cstat-no" title="statement not covered" >                done()</span>
-            })
+<span class="cstat-no" title="statement not covered" >    it('Should return error fetching favourites',<span class="fstat-no" title="function not covered" >function (done){</span></span>
+<span class="cstat-no" title="statement not covered" >        persist.showFavourites('123',<span class="fstat-no" title="function not covered" >function (err, searchResult){</span></span>
+<span class="cstat-no" title="statement not covered" >        expect(err).toBe(null)</span>
+<span class="cstat-no" title="statement not covered" >        expect(searchResult.Response).toBe(undefined)</span>
+<span class="cstat-no" title="statement not covered" >        done()  </span>
         })
     })
 })</pre></td></tr>
