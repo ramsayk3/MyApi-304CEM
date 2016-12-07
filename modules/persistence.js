@@ -51,3 +51,20 @@ exports.remove = function (id, callback) {
         return callback(null, movies)
     })
 }
+exports.updaterating = function (id, imdbRating, callback) {
+    console.log('Trying to update the imdb Rating for your movie')
+    schema.Movie.findOneAndUpdate({
+        imdbID: id
+    }, {new: true},{
+            "imdbRating": imdbRating
+        }
+    , function (err, movies) {
+        if (err) {
+            console.log(err)
+            console.log('Could not update rating')
+            throw err
+        }
+        console.log(movies)
+        return callback(null, movies)
+    })
+}

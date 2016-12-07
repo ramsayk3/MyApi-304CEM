@@ -38,6 +38,7 @@ exports.addMovie = function (imdbID, callback) {
             , Year: json.Year
             , Plot: json.Plot
             , imdbID: json.imdbID
+            , imdbRating: json.imdbRating
         }
         console.log('Adding movie to your favourites')
         db.saveMovie(json, function (err, movie) {

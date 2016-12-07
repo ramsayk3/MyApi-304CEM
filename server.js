@@ -89,6 +89,17 @@ server.del('/favourites/:id', (req, res) => {
         }
     })
 })
+server.put('/favourites/.*', (req, res) => {
+  persist.updaterating(req.params.id,req.params.rating, (err, data) => {
+        res.setHeader('accepts', 'PUT, POST')
+        if (err) {
+            res.send(err)
+        }
+        else {
+            res.send(data)
+        }
+    })
+})
 const port = process.env.PORT || defaultPort
 server.listen(port, function (err) {
     if (err) {
