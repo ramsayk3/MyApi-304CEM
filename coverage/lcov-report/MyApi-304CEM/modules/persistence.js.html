@@ -20,24 +20,24 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">30.23% </span>
+        <span class="strong">47.22% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>13/43</span>
+        <span class='fraction'>17/36</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">17.65% </span>
+        <span class="strong">23.53% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>3/17</span>
+        <span class='fraction'>4/17</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">25% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>0/8</span>
+        <span class='fraction'>2/8</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">30.23% </span>
+        <span class="strong">47.22% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>13/43</span>
+        <span class='fraction'>17/36</span>
       </div>
     </div>
   </div>
@@ -95,22 +95,7 @@
 50
 51
 52
-53
-54
-55
-56
-57
-58
-59
-60
-61
-62
-63
-64
-65
-66
-67
-68</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+53</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-yes">1×</span>
@@ -127,54 +112,39 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict'
@@ -193,55 +163,40 @@ exports.saveMovie = (movieData, callback) =&gt; {
         callback(null, movie)
     })
 }
-exports.showFavourites = <span class="fstat-no" title="function not covered" >function (err, callback) {</span>
-<span class="cstat-no" title="statement not covered" >    console.log('Fetching the favourites movie list')</span>
-<span class="cstat-no" title="statement not covered" >    schema.Movie.find({}, <span class="fstat-no" title="function not covered" >function (err, movies) {</span></span>
-<span class="cstat-no" title="statement not covered" >        if (err) {</span>
+exports.showFavourites = function (err, callback) {
+    console.log('Fetching the favourites movie list')
+    schema.Movie.find({}, function (err, movies) {
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (err) {
 <span class="cstat-no" title="statement not covered" >            console.log('could not fetch movies')</span>
 <span class="cstat-no" title="statement not covered" >            throw err</span>
         }
-<span class="cstat-no" title="statement not covered" >        console.log(movies)</span>
-<span class="cstat-no" title="statement not covered" >        return callback(null, movies)</span>
+        return callback(null, movies)
     })
 }
 exports.showFavouritebyid = <span class="fstat-no" title="function not covered" >function (id, callback) {</span>
 <span class="cstat-no" title="statement not covered" >    console.log('retrieving the film by id')</span>
-<span class="cstat-no" title="statement not covered" >    schema.Movie.find({</span>
-        imdbID: id
-    }, <span class="fstat-no" title="function not covered" >function (err, movies) {</span>
+<span class="cstat-no" title="statement not covered" >    schema.Movie.find({imdbID: id}, <span class="fstat-no" title="function not covered" >function (err, movies) {</span></span>
 <span class="cstat-no" title="statement not covered" >        if (err) {</span>
-<span class="cstat-no" title="statement not covered" >            console.log('error finding film')</span>
 <span class="cstat-no" title="statement not covered" >            throw err</span>
         }
-<span class="cstat-no" title="statement not covered" >        console.log(movies)</span>
 <span class="cstat-no" title="statement not covered" >        return callback(null, movies)</span>
     })
 }
 exports.remove = <span class="fstat-no" title="function not covered" >function (id, callback) {</span>
 <span class="cstat-no" title="statement not covered" >    console.log('Deleting the film')</span>
-<span class="cstat-no" title="statement not covered" >    schema.Movie.remove({</span>
-        imdbID: id
-    }, <span class="fstat-no" title="function not covered" >function (err, movies) {</span>
+<span class="cstat-no" title="statement not covered" >    schema.Movie.remove({imdbID: id}, <span class="fstat-no" title="function not covered" >function (err, movies) {</span></span>
 <span class="cstat-no" title="statement not covered" >        if (err) {</span>
-<span class="cstat-no" title="statement not covered" >            console.log('error finding film')</span>
 <span class="cstat-no" title="statement not covered" >            throw err</span>
         }
-<span class="cstat-no" title="statement not covered" >        console.log(movies)</span>
 <span class="cstat-no" title="statement not covered" >        return callback(null, movies)</span>
     })
 }
 exports.updaterating = <span class="fstat-no" title="function not covered" >function (id, imdbRating, callback) {</span>
 <span class="cstat-no" title="statement not covered" >    console.log('Trying to update the imdb Rating for your movie')</span>
-<span class="cstat-no" title="statement not covered" >    schema.Movie.findOneAndUpdate({</span>
-        imdbID: id
-    }, {
-        "imdbRating": imdbRating
-    }, <span class="fstat-no" title="function not covered" >function (err, movies) {</span>
+<span class="cstat-no" title="statement not covered" >    schema.Movie.findOneAndUpdate({imdbID: id}, {"imdbRating": imdbRating}, <span class="fstat-no" title="function not covered" >function (err, movies) {</span></span>
 <span class="cstat-no" title="statement not covered" >        if (err) {</span>
-<span class="cstat-no" title="statement not covered" >            console.log('Could not update rating')</span>
 <span class="cstat-no" title="statement not covered" >            throw err</span>
         }
-<span class="cstat-no" title="statement not covered" >        console.log(movies)</span>
 <span class="cstat-no" title="statement not covered" >        return callback(null, movies)</span>
     })
 }</pre></td></tr>
@@ -250,7 +205,7 @@ exports.updaterating = <span class="fstat-no" title="function not covered" >func
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Wed Dec 07 2016 17:08:09 GMT+0000 (GMT)
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Wed Dec 07 2016 17:53:33 GMT+0000 (GMT)
 </div>
 </div>
 <script src="../../prettify.js"></script>
