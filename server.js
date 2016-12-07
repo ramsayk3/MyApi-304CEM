@@ -11,8 +11,6 @@ server.use(restify.CORS())
 const defaultPort = 8080
 
 server.get('/search', function (req, res, next) {
-    console.log("*** Searching For ***")
-    console.log(req.params.s)
     omdb.searchMovie(req.params.s, function (err, result) {
         if (err) {
             res.send(400,err)
@@ -20,8 +18,6 @@ server.get('/search', function (req, res, next) {
         else {
             res.send(result)
         }
-        console.log("*** Here Are Your Results ***")
-        console.log(result)
     })
 })
 server.get('/movie', function (req, res, next) {
