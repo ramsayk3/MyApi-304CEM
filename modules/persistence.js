@@ -15,7 +15,6 @@ exports.saveMovie = (movieData, callback) => {
     })
 }
 exports.showFavourites = function (err, callback) {
-    console.log('Fetching the favourites movie list')
     schema.Movie.find({}, function (err, movies) {
         if (err) {
             console.log('could not fetch movies')
@@ -25,7 +24,6 @@ exports.showFavourites = function (err, callback) {
     })
 }
 exports.showFavouritebyid = function (id, callback) {
-    console.log('retrieving the film by id')
     schema.Movie.find({imdbID: id}, function (err, movies) {
         if (err) {
             throw err
@@ -34,7 +32,6 @@ exports.showFavouritebyid = function (id, callback) {
     })
 }
 exports.remove = function (id, callback) {
-    console.log('Deleting the film')
     schema.Movie.remove({imdbID: id}, function (err, movies) {
         if (err) {
             throw err
@@ -43,7 +40,6 @@ exports.remove = function (id, callback) {
     })
 }
 exports.updaterating = function (id, imdbRating, callback) {
-    console.log('Trying to update the imdb Rating for your movie')
     schema.Movie.findOneAndUpdate({imdbID: id}, {"imdbRating": imdbRating}, function (err, movies) {
         if (err) {
             throw err
