@@ -1,6 +1,7 @@
 const request = require("request")
 const schema = require("../Schema/Schema.js")
 const db = require('./persistence.js')
+var ObjectId = require('mongodb').ObjectID
 exports.searchMovie = function (movieSearch, callback) {
     const search = {
         method: 'GET'
@@ -37,8 +38,8 @@ exports.addMovie = function (imdbID, callback) {
             , Year: json.Year
             , Plot: json.Plot
             , imdbID: json.imdbID
+            , imdbRating: json.imdbRating
         }
-    
         console.log('Adding movie to your favourites')
         db.saveMovie(json, function (err, movie) {
             console.log('attempt made')
@@ -47,21 +48,7 @@ exports.addMovie = function (imdbID, callback) {
                 callback(Error(`database error: ${err}`))
             }
             console.log('movie added')
-            console.log(movie)
             return callback(null, movie)
         })
     })
 }
-exports.showFavourites = function(err, callback) {
-    console.log('Fetching the favourites movie list') 
-        schema.Movie.find({},function(err, movies){
-            if (err) {
-                console.log('could not fetch movies')
-                throw err
-            }
-            console.log(movies)
-            return callback(null,movies)
-            
-        })
-    }
-

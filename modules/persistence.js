@@ -1,5 +1,7 @@
 'use strict'
 const schema = require('../Schema/Schema')
+const schema1 = require('../Schema/Schema').Movie
+const omdb = require('./film')
 exports.saveMovie = (movieData, callback) => {
     if (!'title' in movieData && !'year' in movieData && !'plot' in movieData && !'imdbRating' in movieData && !'imdbID' in movieData) {
         callback(new Error('Not a correct movie object'))
@@ -12,10 +14,55 @@ exports.saveMovie = (movieData, callback) => {
         callback(null, movie)
     })
 }
-exports.retrieveFavourites = ((favouriteList, callback) => {
-    schema.Movie.find((err, docs) => {
-        if (err) reject(new Error('database error'))
-        if (!docs.length) reject(new Error("No movies in the list"))
-        resolve(docs)
+exports.showFavourites = function (err, callback) {
+    console.log('Fetching the favourites movie list')
+    schema.Movie.find({}, function (err, movies) {
+        if (err) {
+            console.log('could not fetch movies')
+            throw err
+        }
+        console.log(movies)
+        return callback(null, movies)
     })
-})
+}
+exports.showFavouritebyid = function (id, callback) {
+    console.log('retrieving the film by id')
+    schema.Movie.find({
+        imdbID: id
+    }, function (err, movies) {
+        if (err) {
+            console.log('error finding film')
+            throw err
+        }
+        console.log(movies)
+        return callback(null, movies)
+    })
+}
+exports.remove = function (id, callback) {
+    console.log('Deleting the film')
+    schema.Movie.remove({
+        imdbID: id
+    }, function (err, movies) {
+        if (err) {
+            console.log('error finding film')
+            throw err
+        }
+        console.log(movies)
+        return callback(null, movies)
+    })
+}
+exports.updaterating = function (id, imdbRating, callback) {
+    console.log('Trying to update the imdb Rating for your movie')
+    schema.Movie.findOneAndUpdate({
+        imdbID: id
+    }, {
+        "imdbRating": imdbRating
+    }, function (err, movies) {
+        if (err) {
+            console.log('Could not update rating')
+            throw err
+        }
+        console.log(movies)
+        return callback(null, movies)
+    })
+}

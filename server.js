@@ -9,12 +9,13 @@ server.use(restify.bodyParser())
 server.use(restify.acceptParser(server.acceptable))
 server.use(restify.CORS())
 const defaultPort = 8080
+
 server.get('/search', function (req, res, next) {
     console.log("*** Searching For ***")
     console.log(req.params.s)
     omdb.searchMovie(req.params.s, function (err, result) {
         if (err) {
-            console.log(err)
+            res.send(400,err)
         }
         else {
             res.send(result)
@@ -36,7 +37,7 @@ server.get('/movie', function (req, res, next) {
     }
     omdb.getMovie(input, type, req.params.y, function (err, result) {
         if (err) {
-            console.log(err)
+            res.send(400,err)
         }
         else {
             res.send(result)
@@ -48,27 +49,58 @@ server.post('/favourites', function (req, res) {
     omdb.addMovie(req.params.i, function (err, result) {
         console.log(result)
         if (err) {
-            console.log(err)
+            res.send(400,err)
         }
         else {
-            res.send(result)
+            res.send(201,result)
         }
     })
 })
 server.get('/favourites', (req, res) => {
-    omdb.showFavourites(req, (err, data) => {
+    persist.showFavourites(req, (err, data) => {
         res.setHeader('accepts', 'GET, POST')
         if (err) {
-            res.send(err)
+            res.send(400,err)
         }
         else {
             res.send(data)
         }
     })
 })
-
-
-
+server.get('/favourites/:id', (req, res) => {
+    const id = req.params.id
+    persist.showFavouritebyid(req.params.id, (err, data) => {
+        res.setHeader('accepts', 'GET, POST')
+        if (err) {
+            res.send(400,err)
+        }
+        else {
+            res.send(data)
+        }
+    })
+})
+server.del('/favourites/:id', (req, res) => {
+    persist.remove(req.params.id, (err, data) => {
+        res.setHeader('accepts', 'GET, DELETE')
+        if (err) {
+            res.send(400,err)
+        }
+        else {
+            res.send(data)
+        }
+    })
+})
+server.put('/favourites/.*', (req, res) => {
+  persist.updaterating(req.params.id,req.params.rating, (err, data) => {
+        res.setHeader('accepts', 'PUT, POST')
+        if (err) {
+            res.send(400,err)
+        }
+        else {
+            res.send(data)
+        }
+    })
+})
 const port = process.env.PORT || defaultPort
 server.listen(port, function (err) {
     if (err) {

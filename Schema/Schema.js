@@ -11,8 +11,14 @@ const movieSchema = new schema({
     Title: {type: String},
     Year: {type: Number},
     Plot: {type: String},
+<<<<<<< HEAD
     imdbRating: {type: Number},
     imdbID: {type: Number}   
+=======
+    imdbRating: {type: String},
+    imdbID: {type: String},
+    Owner: {type: String}
+>>>>>>> master
 })
 
 exports.Movie = mongoose.model('Movie', movieSchema)
