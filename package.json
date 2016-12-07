@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "node_modules/.bin/jasmine-node spec --color --verbose --captureExceptions --autotest --watch .",
-      "coverage": "node_modules/.bin/istanbul cover -x **Spec/** -x **server.js** -x  jasmine-node spec"
+      "coverage": "node_modules/.bin/istanbul cover --include-all-sources  jasmine-node spec"
   },
   "dependencies": {
     "chai": "^3.5.0",

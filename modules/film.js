@@ -48,7 +48,6 @@ exports.addMovie = function (imdbID, callback) {
                 callback(Error(`database error: ${err}`))
             }
             console.log('movie added')
-            console.log(movie)
             return callback(null, movie)
         })
     })

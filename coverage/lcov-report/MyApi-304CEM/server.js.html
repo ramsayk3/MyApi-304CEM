@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for MyApi-304CEM/server.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">all files</a> / <a href="index.html">MyApi-304CEM/</a> server.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>0/68</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/20</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/7</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>0/68</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict'
+<span class="cstat-no" title="statement not covered" >const restify = require('restify')</span>
+<span class="cstat-no" title="statement not covered" >const server = restify.createServer()</span>
+<span class="cstat-no" title="statement not covered" >const omdb = require('./modules/film')</span>
+<span class="cstat-no" title="statement not covered" >const movieDb = require('./Schema/Schema')</span>
+<span class="cstat-no" title="statement not covered" >const persist = require('./modules/persistence')</span>
+<span class="cstat-no" title="statement not covered" >server.use(restify.queryParser())</span>
+<span class="cstat-no" title="statement not covered" >server.use(restify.bodyParser())</span>
+<span class="cstat-no" title="statement not covered" >server.use(restify.acceptParser(server.acceptable))</span>
+<span class="cstat-no" title="statement not covered" >server.use(restify.CORS())</span>
+<span class="cstat-no" title="statement not covered" >const defaultPort = 8080</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >server.get('/search', <span class="fstat-no" title="function not covered" >function (req, res, next) {</span></span>
+<span class="cstat-no" title="statement not covered" >    console.log("*** Searching For ***")</span>
+<span class="cstat-no" title="statement not covered" >    console.log(req.params.s)</span>
+<span class="cstat-no" title="statement not covered" >    omdb.searchMovie(req.params.s, <span class="fstat-no" title="function not covered" >function (err, result) {</span></span>
+<span class="cstat-no" title="statement not covered" >        if (err) {</span>
+<span class="cstat-no" title="statement not covered" >            res.send(400,err)</span>
+        }
+        else {
+<span class="cstat-no" title="statement not covered" >            res.send(result)</span>
+        }
+<span class="cstat-no" title="statement not covered" >        console.log("*** Here Are Your Results ***")</span>
+<span class="cstat-no" title="statement not covered" >        console.log(result)</span>
+    })
+})
+<span class="cstat-no" title="statement not covered" >server.get('/movie', <span class="fstat-no" title="function not covered" >function (req, res, next) {</span></span>
+<span class="cstat-no" title="statement not covered" >    let input</span>
+<span class="cstat-no" title="statement not covered" >    let type</span>
+<span class="cstat-no" title="statement not covered" >    if (req.params.n !== undefined) {</span>
+<span class="cstat-no" title="statement not covered" >        input = req.params.n</span>
+<span class="cstat-no" title="statement not covered" >        type = 't'</span>
+    }
+    else {
+<span class="cstat-no" title="statement not covered" >        input = req.params.i</span>
+<span class="cstat-no" title="statement not covered" >        type = 'i'</span>
+    }
+<span class="cstat-no" title="statement not covered" >    omdb.getMovie(input, type, req.params.y, <span class="fstat-no" title="function not covered" >function (err, result) {</span></span>
+<span class="cstat-no" title="statement not covered" >        if (err) {</span>
+<span class="cstat-no" title="statement not covered" >            res.send(400,err)</span>
+        }
+        else {
+<span class="cstat-no" title="statement not covered" >            res.send(result)</span>
+        }
+    })
+})
+<span class="cstat-no" title="statement not covered" >server.post('/favourites', <span class="fstat-no" title="function not covered" >function (req, res) {</span></span>
+<span class="cstat-no" title="statement not covered" >    console.log('adding ' + '' + req.params.i)</span>
+<span class="cstat-no" title="statement not covered" >    omdb.addMovie(req.params.i, <span class="fstat-no" title="function not covered" >function (err, result) {</span></span>
+<span class="cstat-no" title="statement not covered" >        console.log(result)</span>
+<span class="cstat-no" title="statement not covered" >        if (err) {</span>
+<span class="cstat-no" title="statement not covered" >            res.send(400,err)</span>
+        }
+        else {
+<span class="cstat-no" title="statement not covered" >            res.send(201,result)</span>
+        }
+    })
+})
+<span class="cstat-no" title="statement not covered" >server.get('/favourites', (req, res) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    persist.showFavourites(req, (err, data) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >        res.setHeader('accepts', 'GET, POST')</span>
+<span class="cstat-no" title="statement not covered" >        if (err) {</span>
+<span class="cstat-no" title="statement not covered" >            res.send(400,err)</span>
+        }
+        else {
+<span class="cstat-no" title="statement not covered" >            res.send(data)</span>
+        }
+    })
+})
+<span class="cstat-no" title="statement not covered" >server.get('/favourites/:id', (req, res) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    const id = req.params.id</span>
+<span class="cstat-no" title="statement not covered" >    persist.showFavouritebyid(req.params.id, (err, data) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >        res.setHeader('accepts', 'GET, POST')</span>
+<span class="cstat-no" title="statement not covered" >        if (err) {</span>
+<span class="cstat-no" title="statement not covered" >            res.send(400,err)</span>
+        }
+        else {
+<span class="cstat-no" title="statement not covered" >            res.send(data)</span>
+        }
+    })
+})
+<span class="cstat-no" title="statement not covered" >server.del('/favourites/:id', (req, res) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    persist.remove(req.params.id, (err, data) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >        res.setHeader('accepts', 'GET, DELETE')</span>
+<span class="cstat-no" title="statement not covered" >        if (err) {</span>
+<span class="cstat-no" title="statement not covered" >            res.send(400,err)</span>
+        }
+        else {
+<span class="cstat-no" title="statement not covered" >            res.send(data)</span>
+        }
+    })
+})
+<span class="cstat-no" title="statement not covered" >server.put('/favourites/.*', (req, res) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >  persist.updaterating(req.params.id,req.params.rating, (err, data) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >        res.setHeader('accepts', 'PUT, POST')</span>
+<span class="cstat-no" title="statement not covered" >        if (err) {</span>
+<span class="cstat-no" title="statement not covered" >            res.send(400,err)</span>
+        }
+        else {
+<span class="cstat-no" title="statement not covered" >            res.send(data)</span>
+        }
+    })
+})
+<span class="cstat-no" title="statement not covered" >const port = process.env.PORT || defaultPort</span>
+<span class="cstat-no" title="statement not covered" >server.listen(port, <span class="fstat-no" title="function not covered" >function (err) {</span></span>
+<span class="cstat-no" title="statement not covered" >    if (err) {</span>
+<span class="cstat-no" title="statement not covered" >        console.error(err)</span>
+    }
+    else {
+<span class="cstat-no" title="statement not covered" >        console.log('App is ready at : ' + port)</span>
+    }
+})</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Wed Dec 07 2016 16:03:38 GMT+0000 (GMT)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>
