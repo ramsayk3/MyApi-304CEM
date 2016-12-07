@@ -66,21 +66,6 @@ server.get('/favourites', (req, res) => {
         }
     })
 })
-
-server.get('/favourites/:id', (req, res) => {
-    const id = req.params.id
-    persist.showFavourites(req, (err, data) => {
-
-        res.setHeader('accepts', 'GET, POST')
-        if (err) {
-            res.send(err)
-        }
-        else {
-            res.send(data)
-        }
-    })
-})
-
 server.get('/favourites/:id', (req, res) => {
     const id = req.params.id
     persist.showFavouritebyid(req.params.id, (err, data) => {
@@ -93,8 +78,6 @@ server.get('/favourites/:id', (req, res) => {
         }
     })
 })
-
-
 server.del('/favourites/:id', (req, res) => {
     persist.remove(req.params.id, (err, data) => {
         res.setHeader('accepts', 'GET, DELETE')
@@ -106,27 +89,6 @@ server.del('/favourites/:id', (req, res) => {
         }
     })
 })
-
-
-
-
-
-
-
-
-server.del('/favourites/:id', (req, res) => {
-    omdb.remove(req, (err, data) => {
-        res.setHeader('accepts', 'GET, DELETE')
-        if (err) {
-            res.send(err)
-        }
-        else {
-            res.send(data)
-        }
-    })
-})
-
-
 const port = process.env.PORT || defaultPort
 server.listen(port, function (err) {
     if (err) {
