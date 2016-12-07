@@ -24,15 +24,12 @@ exports.getMovie = function (input, type, year, callback) {
 }
 exports.addMovie = function (imdbID, callback) {
     const url = `http://www.omdbapi.com/?i=${imdbID}`
-    console.log(url)
     request.get(url, (err, res, body) => {
         if (err) return callback(Error('could not complete request'))
         const json = JSON.parse(body)
         if (json.totalItems === 0) {
-            console.log('no results')
             return callback(Error('movie not found'))
         }
-        console.log('define the movie to add')
         const data = {
             title: json.Title
             , Year: json.Year
@@ -40,14 +37,10 @@ exports.addMovie = function (imdbID, callback) {
             , imdbID: json.imdbID
             , imdbRating: json.imdbRating
         }
-        console.log('Adding movie to your favourites')
         db.saveMovie(json, function (err, movie) {
-            console.log('attempt made')
             if (err) {
-                console.log('an error adding movie')
                 callback(Error(`database error: ${err}`))
             }
-            console.log('movie added')
             return callback(null, movie)
         })
     })
