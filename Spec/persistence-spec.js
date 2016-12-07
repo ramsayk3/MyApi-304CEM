@@ -8,4 +8,11 @@ describe('Persistence Module Testing', function (){
         done()  
         })
     })
+    it('Should return toy story 2',function (done){
+        persist.showFavouritebyid('tt0120363',function (err, searchResult){
+        expect(err).toBe(null)
+        expect(searchResult.Title).toBe('Toy Story 2')
+        done()  
+        })
+    })
 })
