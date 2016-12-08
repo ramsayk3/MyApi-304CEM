@@ -1,6 +1,6 @@
 'use strict'
 const film = require('../modules/film')
-describe('Film Module Testing', function () {
+xdescribe('Film Module Testing', function () {
     it('should search skyfall', function (done) {
         film.searchMovie('skyfall', function (err, searchResult) {
             expect(err).toBe(null)
