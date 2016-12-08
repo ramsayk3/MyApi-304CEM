@@ -13,7 +13,7 @@ exports.searchMovie = function(movieSearch, callback) {
     , }
 
 	request(search, function(error, response, body) {
-		if (error) throw new Error(error)
+ 	if (error) throw new Error(error)
 		return callback(null, JSON.parse(body))
 	})
 }
@@ -25,7 +25,6 @@ exports.getMovie = function(input, type, year, callback) {
 }
 exports.addMovie = function(imdbID, callback) {
 	const url = `http://www.omdbapi.com/?i=${imdbID}`
-
 	request.get(url, (err, res, body) => {
 		if (err) return callback(Error('could not complete request'))
 		const json = JSON.parse(body)
