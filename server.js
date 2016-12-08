@@ -39,9 +39,7 @@ server.get('/movie', function(req, res) {
 	})
 })
 server.post('/favourites', function(req, res) {
-	console.log('adding ' + '' + req.params.i)
 	omdb.addMovie(req.params.i, function(err, result) {
-		console.log(result)
 		if (err) {
 			res.send(err)
 		}		else {
