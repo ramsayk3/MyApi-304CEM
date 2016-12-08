@@ -36,9 +36,10 @@ exports.addMovie = function(imdbID, callback) {
 
 		db.saveMovie(json, function(err, movie) {
 			if (err) {
-				callback(Error(`database error: ${err}`))
-			}
+				callback(new Error(`database error: ${err}`))
+			} else {
 			return callback(null, movie)
+            }
 		})
 	})
 }
