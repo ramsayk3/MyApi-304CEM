@@ -1,7 +1,7 @@
 const frisby = require('frisby')
 const port = 8080
 
-/*frisby.create('Post Movie To Favourites')
+frisby.create('Post Movie To Favourites')
   .post('http://localhost:' + port + '/favourites?i=tt0435761', { strictSSL: false })
     .expectStatus(200)
  .expectJSON({
@@ -9,7 +9,7 @@ const port = 8080
   Year: 2010
   })
  .toss()
- */
+ 
 
 frisby.create('Get Movie By Specific ImdbID')
   .get('http://localhost:' + port + '/movie?i=tt0114709', { strictSSL: false })
@@ -58,12 +58,12 @@ frisby.create('Get Data From My Database')
 
 
 
-/*frisby.create('Delete Data From My Database')
-  .delete('http://localhost:8080/favourites/:id?id=tt0120366', { strictSSL: false })
+frisby.create('Delete Data From My Database')
+  .delete('http://localhost:8080/favourites/:id?id=tt0435761', { strictSSL: false })
     .expectStatus(200)
  .expectJSON({
   ok: 1
   })
  .toss()
- */
+ 
 

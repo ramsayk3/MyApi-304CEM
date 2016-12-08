@@ -1,8 +1,8 @@
 'use strict'
 const persist = require('../modules/persistence')
 
-xdescribe('Persistence Module Testing', function (){
-    xit('Should return favourites',function (done){
+describe('Persistence Module Testing', function (){
+    it('Should return favourites',function (done){
         persist.showFavourites('',function (err, searchResult){
         expect(err).toBe(null)
         done()  

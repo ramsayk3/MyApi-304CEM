@@ -17,3 +17,10 @@ const movieSchema = new schema({
 })
 
 exports.Movie = mongoose.model('Movie', movieSchema)
+
+process.on('SIGINT', function() {  
+  	mongoose.disconnect(function() {
+    	console.log('Mongoose default connection disconnected through app termination');
+    	process.exit(0)
+  	})
+})
