@@ -24,7 +24,7 @@ exports.saveMovie = (movieData, callback) => {
 exports.showFavourites = function (callback) {
     schema.Movie.find({}, function (err, movies) {
         if (err) {
-            throw err
+            callback(new Error)
         }
         return callback(null, movies)
     })
@@ -33,11 +33,11 @@ exports.showFavouritebyid = function (id, callback) {
     schema.Movie.find({
         imdbID: id
     }, function (err, movies) {
-        console.log(movies)
+        console.log(movies[0])
         if (err) {
-            throw err
+            callback(new Error)
         }
-        return callback(null, movies)
+        return callback(null, movies[0])
     })
 }
 exports.remove = function (id, callback) {
@@ -45,7 +45,7 @@ exports.remove = function (id, callback) {
         imdbID: id
     }, function (err, movies) {
         if (err) {
-            throw err
+             callback(new Error)
         }
         return callback(null, movies)
     })
@@ -57,7 +57,7 @@ exports.updaterating = function (id, imdbRating, callback) {
         'imdbRating': imdbRating
     }, function (err, movies) {
         if (err) {
-            throw err
+             callback(new Error)
         }
         return callback(null, movies)
     })
