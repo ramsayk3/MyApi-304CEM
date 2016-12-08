@@ -26,7 +26,7 @@ describe('Film Module Testing', function () {
         })
     })
     it('Should return an error', function (done) {
-        film.getMovie('','', '', function (err, searchResult) {
+        film.getMovie('invalid','invalid', '1234', function (err, searchResult) {
             expect(err).toBe(null)
             expect(searchResult.Response).toBe('False')
             expect(searchResult.Error).toContain('wrong')
