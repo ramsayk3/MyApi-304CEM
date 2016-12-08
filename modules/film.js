@@ -19,7 +19,7 @@ exports.searchMovie = function(movieSearch, callback) {
 }
 exports.getMovie = function(input, type, year, callback) {
 	request(`http://www.omdbapi.com/?${type}=${input}&y=${year}`, function(error, response, body) {
-		if (error) throw new Error(error)
+		if (error) callback(new Error(error))
 		return callback(null, JSON.parse(body))
 	})
 }
