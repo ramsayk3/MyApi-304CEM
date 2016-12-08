@@ -47,16 +47,15 @@ frisby.create('Get Data From My Database')
   })
  .toss()
 
-/*frisby.create('Get Data From My Database')
- .put('http://localhost:8080/favourites/id=tt0120363&rating=9.9', { strictSSL: false })
+frisby.create('Get Data From My Database')
+ .put('http://localhost:8080/favourites/?id=tt0120363&rating=9.9', { strictSSL: false })
     .expectStatus(200)
- .expectJSON([{
+ .expectJSON({
   Title: 'Toy Story 2',
-  Year: 1999,
-imdbRating: 9.9
-  }])
+  Year: 1999
+  })
  .toss()
- */
+
 
 
 /*frisby.create('Delete Data From My Database')

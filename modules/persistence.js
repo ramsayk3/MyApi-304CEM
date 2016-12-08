@@ -57,7 +57,7 @@ exports.updaterating = function (id, imdbRating, callback) {
         'imdbRating': imdbRating
     }, function (err, movies) {
         if (err) {
-             callback(new Error)
+             return callback(new Error(err))
         }
         return callback(null, movies)
     })
