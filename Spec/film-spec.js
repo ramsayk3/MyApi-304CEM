@@ -1,10 +1,10 @@
 'use strict'
 const film = require('../modules/film')
-xdescribe('Film Module Testing', function () {
+describe('Film Module Testing', function () {
     it('should search skyfall', function (done) {
         film.searchMovie('skyfall', function (err, searchResult) {
             expect(err).toBe(null)
-            expect(searchResult.Search[0].Title).toBe('Sdkyfall')
+            expect(searchResult.Search[0].Title).toBe('Skyfall')
             expect(searchResult.Search[0].imdbID).toBe('tt1074638')
             done()
         })
@@ -33,7 +33,7 @@ xdescribe('Film Module Testing', function () {
             done()
         })
     })
-    it('Should add toy story 3 to my db', function (done) {
+    xit('Should add film to my db', function (done) {
         film.addMovie('tt0385705', function (err, searchResult) {
             expect(err).toBe(null)
             expect(searchResult.Title).toBe('The Football Factory')
@@ -41,10 +41,17 @@ xdescribe('Film Module Testing', function () {
             done()
         })
     })
-    it('Should return undefined', function (done) {
+    xit('Should return undefined', function (done) {
         film.addMovie('', function (err, searchResult) {
             expect(err).toBe(null)
             expect(searchResult.Response).toBe(undefined)
+            done()
+        })
+    })
+    xit('Should return error', function (done) {
+        film.addMovie('tt04357', function (err, searchResult) {
+            expect(err).toBe(null)
+            expect(searchResult.Title).toBe(null)
             done()
         })
     })
