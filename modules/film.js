@@ -13,20 +13,20 @@ exports.searchMovie = function(movieSearch, callback) {
     , }
 
 	request(search, function(error, response, body) {
- 	if (error) throw new Error(error)
+ /* istanbul ignore next */	if (error) throw new Error(error)
 		return callback(null, JSON.parse(body))
 	})
 }
 exports.getMovie = function(input, type, year, callback) {
 	request(`http://www.omdbapi.com/?${type}=${input}&y=${year}`, function(error, response, body) {
-		if (error) callback(new Error(error))
+/* istanbul ignore next */		if (error) callback(new Error(error))
 		return callback(null, JSON.parse(body))
 	})
 }
 exports.addMovie = function(imdbID, callback) {
 	const url = `http://www.omdbapi.com/?i=${imdbID}`
 	request.get(url, (err, res, body) => {
-		if (err) return callback(Error('could not complete request'))
+/* istanbul ignore next */		if (err) return callback(Error('could not complete request'))
 		const json = JSON.parse(body)
 
 		if (json.totalItems === 0) {
