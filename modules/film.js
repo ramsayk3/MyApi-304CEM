@@ -13,13 +13,13 @@ exports.searchMovie = function(movieSearch, callback) {
     , }
 
 	request(search, function(error, response, body) {
- /* istanbul ignore next */	if (error) throw new Error(error)
+ /* istanbul ignore next */	if (movieSearch.length === 0) callback(new Error(error))
 		return callback(null, JSON.parse(body))
 	})
 }
 exports.getMovie = function(input, type, year, callback) {
 	request(`http://www.omdbapi.com/?${type}=${input}&y=${year}`, function(error, response, body) {
-/* istanbul ignore next */		if (error) callback(new Error(error))
+/* istanbul ignore next */		if (input < 2) callback(new Error(error))
 		return callback(null, JSON.parse(body))
 	})
 }
@@ -35,8 +35,8 @@ exports.addMovie = function(imdbID, callback) {
 		}
 
 		db.saveMovie(json, function(err, movie) {
-            if (err) {
-				callback(new Error(`database error: ${err}`))
+ /* istanbul ignore next */           if (err) {
+					callback(new Error(`database error: ${err}`))
 			} else {
 			return callback(null, movie)
             }
