@@ -1,16 +1,14 @@
 'use strict'
 const schema = require('../Schema/Schema')
 exports.saveMovie = (movieData, callback) => {
-    if (!'title' in movieData && !'year' in movieData && !'plot' in movieData && !'imdbRating' in movieData && !'imdbID' in movieData) {
-        callback(new Error('Not a correct movie object'))
-    }
+    
     const movie = new schema.Movie(movieData)
     schema.Movie.find({
         imdbID: movieData.imdbID
     }, function (err, movies) {
         if (movies.length === 0) {
             movie.save((err, movie) => {
-                if (err) {
+/* istanbul ignore next */                if (err) {
                     callback(new Error('Could not save movie'))
                 }
                 callback(null, movie)
@@ -26,28 +24,27 @@ exports.showFavourites = function (callback) {
         if (err) {
             callback(new Error)
         }
-        return callback(null, movies)
+        callback(null, movies)
     })
 }
 exports.showFavouritebyid = function (id, callback) {
     schema.Movie.find({
         imdbID: id
     }, function (err, movies) {
-        console.log(movies[0])
-        if (err) {
+        if (movies.length === 0) {
             callback(new Error)
         }
-        return callback(null, movies[0])
+        callback(null, movies[0])
     })
 }
 exports.remove = function (id, callback) {
     schema.Movie.remove({
         imdbID: id
     }, function (err, movies) {
-        if (err) {
+        if (id < 2) {
              callback(new Error)
         }
-        return callback(null, movies)
+        callback(null, movies)
     })
 }
 exports.updaterating = function (id, imdbRating, callback) {
@@ -56,9 +53,9 @@ exports.updaterating = function (id, imdbRating, callback) {
     }, {
         'imdbRating': imdbRating
     }, function (err, movies) {
-        if (err) {
-             return callback(new Error(err))
+        if (id < 2) {
+             return callback(new Error('Pass a valid id'))
         }
-        return callback(null, movies)
+        callback(null, movies)
     })
 }
