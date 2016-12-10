@@ -8,6 +8,12 @@ server.use(restify.queryParser())
 server.use(restify.bodyParser())
 server.use(restify.acceptParser(server.acceptable))
 server.use(restify.CORS())
+
+const status = {
+    OK: 200,
+    added : 201,
+    badRequest : 400
+}
 const defaultPort = 8080
 
 server.get('/search', function(req, res) {
@@ -17,6 +23,7 @@ server.get('/search', function(req, res) {
 		}		else {
 			res.send(result)
 		}
+        res.end()
 	})
 })
 server.get('/movie', function(req, res) {
@@ -36,6 +43,7 @@ server.get('/movie', function(req, res) {
 		}		else {
 			res.send(result)
 		}
+        res.end()
 	})
 })
 server.post('/favourites', function(req, res) {
@@ -45,31 +53,31 @@ server.post('/favourites', function(req, res) {
 		}		else {
 			res.send(result)
 		}
+        res.end()
 	})
 })
 server.get('/favourites', (req, res) => {
 	persist.showFavourites( (err, data) => {
-		res.setHeader('accepts', 'GET, POST')
 		if (err) {
 			res.send(err)
 		}		else {
 			res.send(data)
 		}
+        res.end()
 	})
 })
 server.get('/favourites/:id', (req, res) => {
 	persist.showFavouritebyid(req.params.id, (err, data) => {
-		res.setHeader('accepts', 'GET, POST')
 		if (err) {
 			res.send(err)
 		}		else {
 			res.send(data)
 		}
+        res.end()
 	})
 })
 server.del('/favourites/:id', (req, res) => {
 	persist.remove(req.params.id, (err, data) => {
-		res.setHeader('accepts', 'GET, DELETE')
 		if (err) {
 			res.send(err)
 		}		else {
@@ -79,7 +87,6 @@ server.del('/favourites/:id', (req, res) => {
 })
 server.put('/favourites/.*', (req, res) => {
 	persist.updaterating(req.params.id,req.params.rating, (err, data) => {
-		res.setHeader('accepts', 'PUT, POST')
 		if (err) {
 			res.send(err)
 		}		else {
