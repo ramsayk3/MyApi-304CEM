@@ -33,7 +33,7 @@ describe('Film Module Testing', function () {
             done()
         })
     })
-    xit('Should add film to my db', function (done) {
+    it('Should add film to my db', function (done) {
         film.addMovie('tt0385705', function (err, searchResult) {
             expect(err).toBe(null)
             expect(searchResult.Title).toBe('The Football Factory')
@@ -41,19 +41,10 @@ describe('Film Module Testing', function () {
             done()
         })
     })
-    xit('Should return undefined', function (done) {
-        film.addMovie('', function (err, searchResult) {
-            expect(err).toBe(null)
-            expect(searchResult.Response).toBe(undefined)
-            done()
-        })
-    })
-    xit('Should return error', function (done) {
+    it('Should return error', function (done) {
         film.addMovie('tt04357', function (err, searchResult) {
-            expect(err).toBe(null)
-            expect(searchResult.Title).toBe(null)
+            expect(err).toBe(err)
             done()
         })
     })
-    
 })
