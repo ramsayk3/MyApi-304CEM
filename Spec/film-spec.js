@@ -1,8 +1,8 @@
 'use strict'
 const film = require('../modules/film')
 
-xdescribe('Film Module Testing', function () {
-    it('should search skyfall', function (done) {
+describe('Film Module Testing', function () {
+    it('Should Search OMDB For Skyfall', function (done) {
         film.searchMovie('skyfall', function (err, searchResult) {
             expect(err).toBe(null)
             expect(searchResult.Search[0].Title).toBe('Skyfall')
