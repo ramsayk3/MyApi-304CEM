@@ -8,7 +8,8 @@ exports.saveMovie = (movieData, callback) => {
     }, function (err, movies) {
         if (movies.length === 0) {
             movie.save((err, movie) => {
-/* istanbul ignore next */                if (err) {
+                /* istanbul ignore next */             
+                if (err) {
                     callback(new Error('Could not save movie'))
                 }
                 callback(null, movie)
@@ -21,41 +22,68 @@ exports.saveMovie = (movieData, callback) => {
 }
 exports.showFavourites = function (callback) {
     schema.Movie.find({}, function (err, movies) {
+        /* istanbul ignore next */
         if (err) {
-            callback(new Error)
-        }
+            callback(new Error(err))
+        } else {
         callback(null, movies)
+        }
     })
 }
-exports.showFavouritebyid = function (id, callback) {
+exports.showFavouritebyid = function (id,callback) {
+    if (id.length < 2) {
+        callback(new Error('Pass a valid id'))
+    } else {
     schema.Movie.find({
         imdbID: id
     }, function (err, movies) {
-        if (movies.length === 0) {
-            callback(new Error)
+        /* istanbul ignore next */ 
+        if (err) {
+            callback(new Error(err))
         }
-        callback(null, movies[0])
+        if (movies.length === 0) {
+            callback(new Error('Id Not In Database'))
+        } else {
+            callback(null, movies[0])
+        }
     })
+    }
 }
 exports.remove = function (id, callback) {
+    if (id.length === 0) {
+        callback(new Error('Pass a valid id'))
+    } else {
     schema.Movie.remove({
         imdbID: id
     }, function (err, movies) {
-        if (id < 2) {
-             callback(new Error)
+        /* istanbul ignore next */ 
+        if (err) {
+             callback(new Error(err))
+        } else {
+            callback(null, movies)
         }
-        callback(null, movies)
     })
+    }
 }
 exports.updaterating = function (id, imdbRating, callback) {
-    schema.Movie.findOneAndUpdate({
-        imdbID: id
-    }, {
-        'imdbRating': imdbRating
+    if (id.length < 2 || imdbRating === undefined) {
+        return callback(new Error('Pass a valid id'))
+    } 
+    else {
+        schema.Movie.findOneAndUpdate({imdbID: id}, {'imdbRating': imdbRating
     }, function (err, movies) {
-        if (id < 2) {
-             return callback(new Error('Pass a valid id'))
+        /* istanbul ignore next */    
+        if (err) {
+             return callback(new Error(err))
+        } 
+        if (movies === null) {
+            callback(new Error('Not in Database'))
         }
-        callback(null, movies)
+        else {
+            callback(null, movies)
+        }
     })
+    }
 }
+
+    
