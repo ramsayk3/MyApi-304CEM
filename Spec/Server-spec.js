@@ -83,15 +83,15 @@ frisby.create('My Database')
  .toss()
 
 frisby.create('My Database Error')
-  .get('http://localhost:8080/favourites/tt04357', { strictSSL: false })
+  .get('http://localhost:8080/favourites/:id?id=t', { strictSSL: false })
     .expectStatus(500)
  .expectJSON({
-  message: ''
+  message: 'Id Not In Database'
   })
  .toss()
 
 frisby.create('Update Rating')
- .put('http://localhost:8080/favourites/?id=tt0120363&rating=9.9', { strictSSL: false })
+ .put('http://localhost:8080/favourites/?id=tt0435761&rating=9.9', { strictSSL: false })
     .expectStatus(200)
  .expectJSON({
   Title: 'Toy Story 3',
@@ -107,22 +107,22 @@ frisby.create('Update Rating Error')
   })
  .toss()
 
-
+frisby.create('Delete Error')
+  .delete('http://localhost:8080/favourites/?id=', { strictSSL: false })
+    .expectStatus(500)
+  .expectJSON({
+   message: "Pass a valid id"
+  })
+ .toss()
 
 frisby.create('Delete Data From My Database')
-  .delete('http://localhost:8080/favourites/:id?id=tt0435761', { strictSSL: false })
+  .delete('http://localhost:8080/favourites/?id=tt0435761', { strictSSL: false })
     .expectStatus(200)
  .expectJSON({
   ok: 1
   })
  .toss()
 
-frisby.create('Delete Error')
-  .delete('http://localhost:8080/favourites/:id?id=', { strictSSL: false })
-    .expectStatus(200)
- .expectJSON({
- message: ''
-  })
- .toss()
+
  
 
