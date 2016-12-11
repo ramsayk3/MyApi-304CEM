@@ -1,68 +1,89 @@
 'use strict'
 const schema = require('../Schema/Schema')
-const schema1 = require('../Schema/Schema').Movie
-const omdb = require('./film')
 exports.saveMovie = (movieData, callback) => {
-    if (!'title' in movieData && !'year' in movieData && !'plot' in movieData && !'imdbRating' in movieData && !'imdbID' in movieData) {
-        callback(new Error('Not a correct movie object'))
-    }
+    
     const movie = new schema.Movie(movieData)
-    movie.save((err, movie) => {
-        if (err) {
-            callback(new Error('Could not save movie'))
+    schema.Movie.find({
+        imdbID: movieData.imdbID
+    }, function (err, movies) {
+        if (movies.length === 0) {
+            movie.save((err, movie) => {
+                /* istanbul ignore next */             
+                if (err) {
+                    callback(new Error('Could not save movie'))
+                }
+                callback(null, movie)
+            })
         }
-        callback(null, movie)
+        else {
+            callback('Denied as duplicate')
+        }
     })
 }
-exports.showFavourites = function (err, callback) {
-    console.log('Fetching the favourites movie list')
+exports.showFavourites = function (callback) {
     schema.Movie.find({}, function (err, movies) {
+        /* istanbul ignore next */
         if (err) {
-            console.log('could not fetch movies')
-            throw err
+            callback(new Error(err))
+        } else {
+        callback(null, movies)
         }
-        console.log(movies)
-        return callback(null, movies)
     })
 }
-exports.showFavouritebyid = function (id, callback) {
-    console.log('retrieving the film by id')
+exports.showFavouritebyid = function (id,callback) {
+    if (id.length < 2) {
+        callback(new Error('Pass a valid id'))
+    } else {
     schema.Movie.find({
         imdbID: id
     }, function (err, movies) {
+        /* istanbul ignore next */ 
         if (err) {
-            console.log('error finding film')
-            throw err
+            callback(new Error(err))
         }
-        console.log(movies)
-        return callback(null, movies)
+        if (movies.length === 0) {
+            callback(new Error('Id Not In Database'))
+        } else {
+            callback(null, movies[0])
+        }
     })
+    }
 }
 exports.remove = function (id, callback) {
-    console.log('Deleting the film')
+    if (id.length === 0) {
+        callback(new Error('Pass a valid id'))
+    } else {
     schema.Movie.remove({
         imdbID: id
     }, function (err, movies) {
+        /* istanbul ignore next */ 
         if (err) {
-            console.log('error finding film')
-            throw err
+             callback(new Error(err))
+        } else {
+            callback(null, movies)
         }
-        console.log(movies)
-        return callback(null, movies)
     })
+    }
 }
 exports.updaterating = function (id, imdbRating, callback) {
-    console.log('Trying to update the imdb Rating for your movie')
-    schema.Movie.findOneAndUpdate({
-        imdbID: id
-    }, {
-        "imdbRating": imdbRating
+    if (id.length < 2 || imdbRating === undefined) {
+        return callback(new Error('Pass a valid id'))
+    } 
+    else {
+        schema.Movie.findOneAndUpdate({imdbID: id}, {'imdbRating': imdbRating
     }, function (err, movies) {
+        /* istanbul ignore next */    
         if (err) {
-            console.log('Could not update rating')
-            throw err
+             return callback(new Error(err))
+        } 
+        if (movies === null) {
+            callback(new Error('Not in Database'))
         }
-        console.log(movies)
-        return callback(null, movies)
+        else {
+            callback(null, movies)
+        }
     })
+    }
 }
+
+    
