@@ -10,7 +10,7 @@ frisby.create('Post Movie')
   })
  .toss()
 
-frisby.create('Post Movie Error')
+frisby.create('Post Movie - Error')
   .post('http://localhost:' + port + '/favourites?i=', { strictSSL: false })
     .expectStatus(500)
  .expectJSON({
@@ -19,7 +19,7 @@ frisby.create('Post Movie Error')
  .toss()
  
 
-frisby.create('Get Movie By ID')
+frisby.create('Get Movie From omdb By ID')
   .get('http://localhost:' + port + '/movie?i=tt0114709', { strictSSL: false })
     .expectStatus(200)
  .expectJSON({
@@ -28,7 +28,7 @@ frisby.create('Get Movie By ID')
   })
  .toss()
 
-frisby.create('Get Movie By ID Error')
+frisby.create('Get Movie From omdb By ID - Error')
   .get('http://localhost:' + port + '/movie?i=', { strictSSL: false })
     .expectStatus(500)
  .expectJSON({
@@ -36,7 +36,7 @@ frisby.create('Get Movie By ID Error')
   })
  .toss()
 
-frisby.create('Search')
+frisby.create('Search omdb')
   .get('http://localhost:' + port + '/search?s=Toy%20Story', { strictSSL: false })
     .expectStatus(200)
  .expectJSON('Search', [{
@@ -45,7 +45,7 @@ frisby.create('Search')
   }])
  .toss()
 
-frisby.create('Search Error')
+frisby.create('Search omdb Error')
   .get('http://localhost:' + port + '/search?s=', { strictSSL: false })
     .expectStatus(500)
  .expectJSON({
@@ -54,7 +54,7 @@ frisby.create('Search Error')
  .toss()
 
 
-frisby.create('Database')
+frisby.create('Retrieve Favourites List')
   .get('http://localhost:' + port + '/favourites', { strictSSL: false })
     .expectStatus(200)
  .expectJSON([{
@@ -73,7 +73,7 @@ frisby.create('Database')
  .toss()
  */
 
-frisby.create('My Database')
+frisby.create('Search By imdbId In Favourites')
   .get('http://localhost:8080/favourites/tt0435761', { strictSSL: false })
     .expectStatus(200)
  .expectJSON({
@@ -82,7 +82,7 @@ frisby.create('My Database')
   })
  .toss()
 
-frisby.create('My Database Error')
+frisby.create('Search By imdbId In Favourites - Error')
   .get('http://localhost:8080/favourites/:id?id=t', { strictSSL: false })
     .expectStatus(500)
  .expectJSON({
@@ -90,7 +90,7 @@ frisby.create('My Database Error')
   })
  .toss()
 
-frisby.create('Update Rating')
+frisby.create('Update Rating For Movie')
  .put('http://localhost:8080/favourites/?id=tt0435761&rating=9.9', { strictSSL: false })
     .expectStatus(200)
  .expectJSON({
@@ -99,7 +99,7 @@ frisby.create('Update Rating')
   })
  .toss()
 
-frisby.create('Update Rating Error')
+frisby.create('Update Rating For Movie - Error')
  .put('http://localhost:8080/favourites/?id=&rating=9.9', { strictSSL: false })
     .expectStatus(500)
  .expectJSON({
@@ -107,7 +107,7 @@ frisby.create('Update Rating Error')
   })
  .toss()
 
-frisby.create('Delete Error')
+frisby.create('Delete Movie From Favourites - Error')
   .delete('http://localhost:8080/favourites/?id=', { strictSSL: false })
     .expectStatus(500)
   .expectJSON({
@@ -115,7 +115,7 @@ frisby.create('Delete Error')
   })
  .toss()
 
-frisby.create('Delete Data From My Database')
+frisby.create('Delete Movie From Favourites')
   .delete('http://localhost:8080/favourites/?id=tt0435761', { strictSSL: false })
     .expectStatus(200)
  .expectJSON({
