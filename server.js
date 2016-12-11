@@ -23,7 +23,6 @@ server.get('/search', function(req, res) {
 		}		else {
 			res.send(result)
 		}
-        res.end()
 	})
 })
 server.get('/movie', function(req, res) {
@@ -43,7 +42,6 @@ server.get('/movie', function(req, res) {
 		}		else {
 			res.send(result)
 		}
-        res.end()
 	})
 })
 server.post('/favourites', function(req, res) {
@@ -53,7 +51,6 @@ server.post('/favourites', function(req, res) {
 		}		else {
 			res.send(result)
 		}
-        res.end()
 	})
 })
 server.get('/favourites', (req, res) => {
@@ -63,7 +60,6 @@ server.get('/favourites', (req, res) => {
 		}		else {
 			res.send(data)
 		}
-        res.end()
 	})
 })
 server.get('/favourites/:id', (req, res) => {
@@ -73,7 +69,6 @@ server.get('/favourites/:id', (req, res) => {
 		}		else {
 			res.send(data)
 		}
-        res.end()
 	})
 })
 server.del('/favourites/:id', (req, res) => {
