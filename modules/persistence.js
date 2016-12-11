@@ -32,20 +32,20 @@ exports.showFavourites = function(callback) {
 	})
 }
 exports.showFavouritebyid = function(id,callback) {
-		schema.Movie.find({
-			imdbID: id
-		}, function(err, movies) {
+	schema.Movie.find({
+		imdbID: id
+	}, function(err, movies) {
         /* istanbul ignore next */
-			if (err) {
-				callback(new Error(err))
-			}
-			if (movies.length === 0) {
-				callback(new Error('Id Not In Database'))
-			} else {
-				callback(null, movies[0])
-			}
-		})
-	}
+		if (err) {
+			callback(new Error(err))
+		}
+		if (movies.length === 0) {
+			callback(new Error('Id Not In Database'))
+		} else {
+			callback(null, movies[0])
+		}
+	})
+}
 exports.remove = function(id, callback) {
 	if (id.length === 0) {
 		callback(new Error('Pass a valid id'))
