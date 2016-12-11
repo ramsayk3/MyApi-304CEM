@@ -10,14 +10,14 @@ describe('Film Module Testing', function () {
             done()
         })
     })
-    it('Should return an error', function (done) {
+    it('Should Return Search Error As Invalid Search', function (done) {
         film.searchMovie('', function (err, searchResult) {
             expect(err).toBe(err)
             expect(400)
             done()
         })
     })
-    it('Should return toy story 2', function (done) {
+    it('Should Return Movie From imdbID', function (done) {
         film.getMovie('tt0120363','i', '1999', function (err, searchResult) {
             expect(err).toBe(null)
             expect(searchResult.Title).toBe('Toy Story 2')
@@ -25,14 +25,14 @@ describe('Film Module Testing', function () {
             done()
         })
     })
-    it('Should return an error', function (done) {
+    it('Should Return Get Movie Error As Invalid Parameters', function (done) {
         film.getMovie('invalid','invalid', '1234', function (err, searchResult) {
             expect(err).toBe(err)
             expect(400)
             done()
         })
     })
-    it('Should add film to my db', function (done) {
+    it('Should Add Movie To Favourites List', function (done) {
         film.addMovie('tt0385705', function (err, searchResult) {
             expect(err).toBe(null)
             expect(searchResult.Title).toBe('The Football Factory')
@@ -40,14 +40,14 @@ describe('Film Module Testing', function () {
             done()
         })
     })
-    it('Duplicate Error Test', function (done) {
+    it('Should Return Error As Movie Duplicate', function (done) {
         film.addMovie('tt0120363', function (err, searchResult) {
             expect(err).toBe(err)
             expect(400)
             done()
         })
     })
-    it('Should return error', function (done) {
+    it('Should Return Add Movie Error As Invalid ID', function (done) {
         film.addMovie('', function (err, searchResult) {
             expect(err).toBe(err)
             expect(400)
