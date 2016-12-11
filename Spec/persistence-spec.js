@@ -17,8 +17,8 @@ describe('Persistence Module Testing', function () {
         })
     })
     it('Should Return Error As Invalid ID', function (done) {
-        persist.showFavouritebyid('t', function (err, searchResult) {
-            expect(err).toBe(err)
+        persist.showFavouritebyid('',function (err, searchResult) {
+            expect(err.message).toBe('Id Not In Database')
             expect(500)
             done()
         })
@@ -38,7 +38,7 @@ describe('Persistence Module Testing', function () {
         })
     })
     it('Should Fail To Update As Invalid ID', function (done) {
-        persist.updaterating('', 5, function (err, searchResult) {
+        persist.updaterating(undefined, 5, function (err, searchResult) {
             expect(err.message).toBe('Pass a valid id')
             expect(500)
             done()
