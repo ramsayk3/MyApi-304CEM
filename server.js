@@ -9,11 +9,6 @@ server.use(restify.bodyParser())
 server.use(restify.acceptParser(server.acceptable))
 server.use(restify.CORS())
 
-const status = {
-    OK: 200,
-    added : 201,
-    badRequest : 400
-}
 const defaultPort = 8080
 
 server.get('/search', function(req, res) {
