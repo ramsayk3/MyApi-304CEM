@@ -4,12 +4,14 @@
   "description": "nodejs api",
   "main": "server.js",
   "scripts": {
-    "test": "node_modules/.bin/jasmine-node spec --color --verbose --captureExceptions --autotest --watch ."
+    "test": "node_modules/.bin/jasmine-node spec --color --verbose --captureExceptions --autotest --watch .",
+    "coverage": "node_modules/.bin/istanbul cover -x server.js -x **/Spec/** -x **/Schema/**  jasmine-node spec"
   },
   "dependencies": {
     "chai": "^3.5.0",
     "jasmine": "^2.5.2",
     "mocha": "^3.1.2",
+    "mongoose": "^4.7.0",
     "node": "^0.0.0",
     "nodemon": "^1.11.0",
     "request": "^2.78.0",
@@ -17,6 +19,8 @@
     "restify": "^4.2.0"
   },
   "devDependencies": {
+    "frisby": "^0.8.5",
+    "istanbul": "^0.4.5",
     "jasmine-node": "^1.14.5"
   },
   "author": "Kai Ramsay",
