@@ -11,7 +11,7 @@ describe('Film Module Testing', function () {
         })
     })
     it('Should Return Search Error As Invalid Search', function (done) {
-        film.searchMovie('', function (err, searchResult) {
+        film.searchMovie(undefined, function (err, searchResult) {
             expect(err).toBe(err)
             expect(400)
             done()

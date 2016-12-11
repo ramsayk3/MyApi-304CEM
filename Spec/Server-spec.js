@@ -30,9 +30,10 @@ frisby.create('Get Movie From omdb By ID')
 
 frisby.create('Get Movie From omdb By ID - Error')
   .get('http://localhost:' + port + '/movie?i=', { strictSSL: false })
-    .expectStatus(500)
+    .expectStatus(200)
  .expectJSON({
-   message: "null"
+   Response: "False",
+   Error : "Something went wrong."
   })
  .toss()
 
@@ -47,9 +48,10 @@ frisby.create('Search omdb')
 
 frisby.create('Search omdb Error')
   .get('http://localhost:' + port + '/search?s=', { strictSSL: false })
-    .expectStatus(500)
+    .expectStatus(200)
  .expectJSON({
-  message: "null"
+  Response: "False",
+  Error : "Something went wrong."
   })
  .toss()
 
@@ -83,7 +85,7 @@ frisby.create('Search By imdbId In Favourites')
  .toss()
 
 frisby.create('Search By imdbId In Favourites - Error')
-  .get('http://localhost:8080/favourites/:id?id=t', { strictSSL: false })
+  .get('http://localhost:8080/favourites/:id?id=', { strictSSL: false })
     .expectStatus(500)
  .expectJSON({
   message: 'Id Not In Database'
@@ -103,7 +105,7 @@ frisby.create('Update Rating For Movie - Error')
  .put('http://localhost:8080/favourites/?id=&rating=9.9', { strictSSL: false })
     .expectStatus(500)
  .expectJSON({
-  message: "Pass a valid id"
+  message: 'Not in Database'
   })
  .toss()
 
