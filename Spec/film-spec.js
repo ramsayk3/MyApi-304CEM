@@ -12,7 +12,7 @@ describe('Film Module Testing', function () {
     })
     it('Should Return Search Error As Invalid Search', function (done) {
         film.searchMovie(undefined, function (err, searchResult) {
-            expect(err).toBe(err)
+            expect(err.message).toBe('Pass In A Search')
             expect(400)
             done()
         })
