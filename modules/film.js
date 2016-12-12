@@ -18,16 +18,7 @@ exports.searchMovie = function(movieSearch, callback) {
 	if (movieSearch === undefined) {
 		callback(new Error('Pass In A Search'))
 	} else {
-		const search = {
-			method: 'GET'
-        , url: 'http://www.omdbapi.com/'
-        , qs: {
-	s: movieSearch
-            , r: 'json'
-}
-    , }
-
-		request(search, function(err, response, body) {
+		request(`http://www.omdbapi.com/?s=${movieSearch}`, function(err, response, body) {
 		/* istanbul ignore next */
 			if (err) {
 				callback(new Error(err))
