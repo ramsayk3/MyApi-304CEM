@@ -65,7 +65,10 @@ exports.showFavourites = function(callback) {
 *@throws Will throw error if Id entered doesn't exist in the list
 */
 exports.showFavouritebyid = function(id,callback) {
-	schema.Movie.find({
+	if (id.length === 0) {
+		callback(new Error('Pass a valid id'))
+	} else {
+    schema.Movie.find({
 		imdbID: id
 	}, function(err, movies) {
         /* istanbul ignore next */
@@ -78,6 +81,7 @@ exports.showFavouritebyid = function(id,callback) {
 			callback(null, movies[0])
 		}
 	})
+    }
 }
 /**
 *Removes Specific Movie In Favourites List

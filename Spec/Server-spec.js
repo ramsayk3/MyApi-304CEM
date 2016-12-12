@@ -68,16 +68,6 @@ frisby.create('Retrieve Favourites List')
 }])
  .toss()
 
-/*frisby.create('Database Error')
-  .get('http://localhost:' + port + '/favourites', { strictSSL: false })
-    .expectStatus(200)
- .expectJSON([{
-  Title: 'Toy Story 2',
-  Year: 1999
-  }])
- .toss()
- */
-
 frisby.create('Search By imdbId In Favourites')
   .get('http://localhost:8080/favourites/tt0435761', { strictSSL: false })
     .expectStatus(ok)
@@ -88,6 +78,14 @@ frisby.create('Search By imdbId In Favourites')
  .toss()
 
 frisby.create('Search By imdbId In Favourites - Error')
+  .get('http://localhost:8080/favourites/:id?id=tt2', { strictSSL: false })
+    .expectStatus(bad)
+ .expectJSON({
+	message: 'Id Not In Database'
+})
+ .toss()
+
+frisby.create('Search By imdbId In Favourites - Error 2')
   .get('http://localhost:8080/favourites/:id?id=', { strictSSL: false })
     .expectStatus(bad)
  .expectJSON({

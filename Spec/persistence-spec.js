@@ -21,7 +21,7 @@ describe('Persistence Module Testing', function() {
 	})
 	it('Should Return Error As Invalid ID', function(done) {
 		persist.showFavouritebyid('',function(err) {
-			expect(err.message).toBe('Id Not In Database')
+			expect(err.message).toBe('Pass a valid id')
 			expect(bad)
 			done()
 		})
