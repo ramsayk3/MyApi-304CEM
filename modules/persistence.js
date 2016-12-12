@@ -1,10 +1,15 @@
 'use strict'
 const schema = require('../Schema/Schema')
 
+/**
+*Saves Movie To DB Based On Data Return
+*@function
+*@Param {String} movieData - Request
+*@Param {String} callback - Response
+@Returns {JSON} Movie Data Added
+*/
 exports.saveMovie = (movieData, callback) => {
-
 	const movie = new schema.Movie(movieData)
-
 	schema.Movie.find({
 		imdbID: movieData.imdbID
 	}, function(err, movies) {
@@ -21,6 +26,12 @@ exports.saveMovie = (movieData, callback) => {
 		}
 	})
 }
+/**
+*Shows Movies In Favourites List
+*@function
+*@Param {String} callback - Response
+@Returns {JSON} Movie Data In Favourites List
+*/
 exports.showFavourites = function(callback) {
 	schema.Movie.find({}, function(err, movies) {
         /* istanbul ignore next */
@@ -31,6 +42,13 @@ exports.showFavourites = function(callback) {
 		}
 	})
 }
+/**
+*Shows Specific Movie In Favourites List
+*@function
+*@Param {String} id - Request
+*@Param {String} callback - Response
+@Returns {JSON} Specific Movie Data From Favourites
+*/
 exports.showFavouritebyid = function(id,callback) {
 	schema.Movie.find({
 		imdbID: id
@@ -46,6 +64,13 @@ exports.showFavouritebyid = function(id,callback) {
 		}
 	})
 }
+/**
+*Removes Specific Movie In Favourites List
+*@function
+*@Param {String} id - Request
+*@Param {String} callback - Response
+@Returns {JSON} Removal Confirmation
+*/
 exports.remove = function(id, callback) {
 	if (id.length === 0) {
 		callback(new Error('Pass a valid id'))
@@ -62,6 +87,14 @@ exports.remove = function(id, callback) {
 		})
 	}
 }
+/**
+*Updates imdbRating To A Specific Movie
+*@function
+*@Param {String} id - Request
+*@Param {String} imdbRating - Request
+*@Param {String} callback - Response
+@Returns {JSON} Removal Confirmation
+*/
 exports.updaterating = function(id, imdbRating, callback) {
 	if (id === undefined || imdbRating === undefined) {
 		return callback(new Error('Pass a valid id'))
