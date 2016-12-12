@@ -1,13 +1,18 @@
 'use strict'
 const request = require('request')
 const db = require('./persistence.js')
+/**
+*@module Film Module
+*/
 
 /**
 *Searches For Movies Based On Parameter Entered
 *@function
-*@Param {String} movieSearch - Request
-*@Param {String} callback - Response
-@Returns {JSON} Search Results
+*@Param {String} movieSearch - Movie To Find
+*@Param {String} callback - Search Results
+*@Returns {JSON} Search Results
+*@throws Will throw error if search entered is undefined
+*@throws Will throw error if omdb server is down
 */
 exports.searchMovie = function(movieSearch, callback) {
 	if (movieSearch === undefined) {
@@ -35,11 +40,12 @@ exports.searchMovie = function(movieSearch, callback) {
 /**
 *Searches For Movie Based On Specific Parameters Entered
 *@function
-*@Param {String} input - Request
-*@Param {String} type - Request
-*@Param {String} year - Request
-*@Param {String} callback - Response
-@Returns {JSON} Specific Movie Data
+*@Param {String} input - Movie To Find
+*@Param {String} type - 'n' For Text Search OR 'i' For imdbID Search
+*@Param {String} year - Year Of Film
+*@Param {String} callback - Search Results
+*@Returns {JSON} Specific Movie Data
+*@throws Will throw error if omdb server is down
 */
 exports.getMovie = function(input, type, year, callback) {
 	request(`http://www.omdbapi.com/?${type}=${input}&y=${year}`, function(err, response, body) {
@@ -54,9 +60,13 @@ exports.getMovie = function(input, type, year, callback) {
 /**
 *Searches For Movie To Be Added To DB Based On Parameter Entered
 *@function
-*@Param {String} imdbID - Request
-*@Param {String} callback - Response
-@Returns {JSON} Movie Data To Be Added
+*@Param {String} imdbID - Movie imdbID
+*@Param {String} callback - Search Result
+*@see module: Persistence Module
+*@Returns {JSON} Movie Data To Be Added
+*@throws Will throw error if no movie is found to be added
+*@throws Will throw error if omdb server is down
+*@throws Will throw error if cant save movie to favourites list
 */
 exports.addMovie = function(imdbID, callback) {
 	const url = `http://www.omdbapi.com/?i=${imdbID}`
