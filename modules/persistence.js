@@ -1,11 +1,14 @@
 'use strict'
 const schema = require('../Schema/Schema')
 
+
 /**
 *Saves Movie To DB Based On Data Return
 *@function
 *@Param {String} movieData - Data exported From addMovie 
 *@Param {String} callback - Adding Confirmation
+*@module saveMovie
+*@see module:addMovie
 *@Returns {JSON} Movie Data Added
 *@throws Will throw error if omdb server is down
 *@throws Will throw error if mlab is down
@@ -38,6 +41,7 @@ exports.saveMovie = (movieData, callback) => {
 *Shows Movies In Favourites List
 *@function
 *@Param {String} callback - Favourites List
+*@module showFavourites
 *@Returns {JSON} Movie Data In Favourites List
 *@throws Will throw error if mlab is down
 */
@@ -56,6 +60,7 @@ exports.showFavourites = function(callback) {
 *@function
 *@Param {String} id - Movie imdbID
 *@Param {String} callback - Movie Data
+*@module showFavouritebyid
 *@Returns {JSON} Specific Movie Data From Favourites
 *@throws Will throw error if mlab is down
 *@throws Will throw error if Id entered doesn't exist in the list
@@ -80,6 +85,7 @@ exports.showFavouritebyid = function(id,callback) {
 *@function
 *@Param {String} id - Movie imdbID
 *@Param {String} callback - Removal Confirmation
+*@module remove
 *@Returns {JSON} Removal Confirmation
 *@throws Will throw error if Id entered invalid
 *@throws Will throw error if mlab is down
@@ -106,6 +112,7 @@ exports.remove = function(id, callback) {
 *@Param {String} id - Movie imdbID
 *@Param {String} imdbRating - New Movie imdbRating
 *@Param {String} callback - Old Movie Data
+*@module updaterating
 *@Returns {JSON} Update Confirmation
 *@throws Will throw error if Id or imdbRating entered invalid
 *@throws Will throw error if mlab is down

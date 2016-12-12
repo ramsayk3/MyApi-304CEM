@@ -2,11 +2,13 @@
 const request = require('request')
 const db = require('./persistence.js')
 
+
 /**
 *Searches For Movies Based On Parameter Entered
 *@function
 *@Param {String} movieSearch - Movie To Find
 *@Param {String} callback - Search Results
+*@module searchMovie
 *@Returns {JSON} Search Results
 *@throws Will throw error if search entered is undefined
 *@throws Will throw error if omdb server is down
@@ -41,6 +43,7 @@ exports.searchMovie = function(movieSearch, callback) {
 *@Param {String} type - 'n' For Text Search OR 'i' For imdbID Search
 *@Param {String} year - Year Of Film
 *@Param {String} callback - Search Results
+*@module getMovie
 *@Returns {JSON} Specific Movie Data
 *@throws Will throw error if omdb server is down
 */
@@ -59,6 +62,8 @@ exports.getMovie = function(input, type, year, callback) {
 *@function
 *@Param {String} imdbID - Movie imdbID
 *@Param {String} callback - Search Result
+*@module addMovie
+*@see module:saveMovie
 *@Returns {JSON} Movie Data To Be Added
 *@throws Will throw error if no movie is found to be added
 *@throws Will throw error if omdb server is down
