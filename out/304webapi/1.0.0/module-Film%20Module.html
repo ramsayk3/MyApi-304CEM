@@ -54,6 +54,657 @@
     
 
     
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    <h4 class="name" id=".addMovie"><span class="type-signature">(static) </span>addMovie<span class="signature">(imdbID, callback)</span><span class="type-signature"> &rarr; {JSON}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Searches For Movie To Be Added To DB Based On Parameter Entered
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>imdbID</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Movie imdbID</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Search Result</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="film.js.html">film.js</a>, <a href="film.js.html#line71">line 71</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li>module: Persistence Module</li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+<h5>Throws:</h5>
+<ul>
+        <li>
+
+    <div class="param-desc">
+    
+        Will throw error if no movie is found to be added
+    
+    </div>
+
+</li>
+    
+        <li>
+
+    <div class="param-desc">
+    
+        Will throw error if omdb server is down
+    
+    </div>
+
+</li>
+    
+        <li>
+
+    <div class="param-desc">
+    
+        Will throw error if cant save movie to favourites list
+    
+    </div>
+
+</li>
+    </ul>
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Movie Data To Be Added
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">JSON</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".getMovie"><span class="type-signature">(static) </span>getMovie<span class="signature">(input, type, year, callback)</span><span class="type-signature"> &rarr; {JSON}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Searches For Movie Based On Specific Parameters Entered
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>input</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Movie To Find</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>type</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">'n' For Text Search OR 'i' For imdbID Search</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>year</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Year Of Film</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Search Results</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="film.js.html">film.js</a>, <a href="film.js.html#line50">line 50</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+<h5>Throws:</h5>
+
+        
+
+    <div class="param-desc">
+    
+        Will throw error if omdb server is down
+    
+    </div>
+
+
+    
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Specific Movie Data
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">JSON</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".searchMovie"><span class="type-signature">(static) </span>searchMovie<span class="signature">(movieSearch, callback)</span><span class="type-signature"> &rarr; {JSON}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Searches For Movies Based On Parameter Entered
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>movieSearch</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Movie To Find</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Search Results</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="film.js.html">film.js</a>, <a href="film.js.html#line17">line 17</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+<h5>Throws:</h5>
+<ul>
+        <li>
+
+    <div class="param-desc">
+    
+        Will throw error if search entered is undefined
+    
+    </div>
+
+</li>
+    
+        <li>
+
+    <div class="param-desc">
+    
+        Will throw error if omdb server is down
+    
+    </div>
+
+</li>
+    </ul>
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Search Results
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">JSON</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+    
 
     
 
@@ -68,13 +719,13 @@
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-addMovie.html">addMovie</a></li><li><a href="module-Film%2520Module.html">Film Module</a></li><li><a href="module-getMovie.html">getMovie</a></li><li><a href="module-Persistence%2520Module.html">Persistence Module</a></li><li><a href="module-remove.html">remove</a></li><li><a href="module-saveMovie.html">saveMovie</a></li><li><a href="module-searchMovie.html">searchMovie</a></li><li><a href="module-showFavouritebyid.html">showFavouritebyid</a></li><li><a href="module-showFavourites.html">showFavourites</a></li><li><a href="module-updaterating.html">updaterating</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-Film%2520Module.html">Film Module</a></li><li><a href="module-Persistence%2520Module.html">Persistence Module</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Mon Dec 12 2016 19:06:34 GMT+0000 (GMT)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Mon Dec 12 2016 20:36:00 GMT+0000 (GMT)
 </footer>
 
 <script> prettyPrint(); </script>
