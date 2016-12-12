@@ -25,7 +25,7 @@ exports.searchMovie = function(movieSearch, callback) {
 		request(search, function(err, response, body) {
 		/* istanbul ignore next */
 			if (err) {
-				callback(new Error(error))
+				callback(new Error(err))
 			} else {
 				return callback(null, JSON.parse(body))
 			}
@@ -45,7 +45,7 @@ exports.getMovie = function(input, type, year, callback) {
 	request(`http://www.omdbapi.com/?${type}=${input}&y=${year}`, function(err, response, body) {
 		/* istanbul ignore next */
 		if (err) {
-			callback(new Error(error))
+			callback(new Error(err))
 		} else {
 			return callback(null, JSON.parse(body))
 		}

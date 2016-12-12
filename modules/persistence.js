@@ -10,9 +10,14 @@ const schema = require('../Schema/Schema')
 */
 exports.saveMovie = (movieData, callback) => {
 	const movie = new schema.Movie(movieData)
+
 	schema.Movie.find({
 		imdbID: movieData.imdbID
 	}, function(err, movies) {
+        /* istanbul ignore next */
+		if (err) {
+			callback(new Error(err))
+		}
 		if (movies.length === 0) {
 			movie.save((err, movie) => {
                 /* istanbul ignore next */
