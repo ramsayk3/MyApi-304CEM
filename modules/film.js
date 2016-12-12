@@ -7,7 +7,9 @@ const db = require('./persistence.js')
 *@function
 *@Param {String} movieSearch - Request
 *@Param {String} callback - Response
-@Returns {JSON} Search Results
+*@Returns {JSON} Search Results
+*@throws Will throw error if search entered is undefined
+*@throws Will throw error if omdb server is down
 */
 exports.searchMovie = function(movieSearch, callback) {
 	if (movieSearch === undefined) {
@@ -39,7 +41,8 @@ exports.searchMovie = function(movieSearch, callback) {
 *@Param {String} type - Request
 *@Param {String} year - Request
 *@Param {String} callback - Response
-@Returns {JSON} Specific Movie Data
+*@Returns {JSON} Specific Movie Data
+*@throws Will throw error if omdb server is down
 */
 exports.getMovie = function(input, type, year, callback) {
 	request(`http://www.omdbapi.com/?${type}=${input}&y=${year}`, function(err, response, body) {
@@ -56,7 +59,10 @@ exports.getMovie = function(input, type, year, callback) {
 *@function
 *@Param {String} imdbID - Request
 *@Param {String} callback - Response
-@Returns {JSON} Movie Data To Be Added
+*@Returns {JSON} Movie Data To Be Added
+*@throws Will throw error if no movie is found to be added
+*@throws Will throw error if omdb server is down
+*@throws Will throw error if cant save movie to favourites list
 */
 exports.addMovie = function(imdbID, callback) {
 	const url = `http://www.omdbapi.com/?i=${imdbID}`

@@ -6,7 +6,10 @@ const schema = require('../Schema/Schema')
 *@function
 *@Param {String} movieData - Request
 *@Param {String} callback - Response
-@Returns {JSON} Movie Data Added
+*@Returns {JSON} Movie Data Added
+*@throws Will throw error if omdb server is down
+*@throws Will throw error if mlab is down
+*@throws Will throw error if trying to add a duplicate movie
 */
 exports.saveMovie = (movieData, callback) => {
 	const movie = new schema.Movie(movieData)
@@ -35,7 +38,8 @@ exports.saveMovie = (movieData, callback) => {
 *Shows Movies In Favourites List
 *@function
 *@Param {String} callback - Response
-@Returns {JSON} Movie Data In Favourites List
+*@Returns {JSON} Movie Data In Favourites List
+*@throws Will throw error if mlab is down
 */
 exports.showFavourites = function(callback) {
 	schema.Movie.find({}, function(err, movies) {
@@ -52,7 +56,9 @@ exports.showFavourites = function(callback) {
 *@function
 *@Param {String} id - Request
 *@Param {String} callback - Response
-@Returns {JSON} Specific Movie Data From Favourites
+*@Returns {JSON} Specific Movie Data From Favourites
+*@throws Will throw error if mlab is down
+*@throws Will throw error if Id entered doesn't exist in the list
 */
 exports.showFavouritebyid = function(id,callback) {
 	schema.Movie.find({
@@ -74,7 +80,9 @@ exports.showFavouritebyid = function(id,callback) {
 *@function
 *@Param {String} id - Request
 *@Param {String} callback - Response
-@Returns {JSON} Removal Confirmation
+*@Returns {JSON} Removal Confirmation
+*@throws Will throw error if Id entered invalid
+*@throws Will throw error if mlab is down
 */
 exports.remove = function(id, callback) {
 	if (id.length === 0) {
@@ -98,7 +106,10 @@ exports.remove = function(id, callback) {
 *@Param {String} id - Request
 *@Param {String} imdbRating - Request
 *@Param {String} callback - Response
-@Returns {JSON} Removal Confirmation
+*@Returns {JSON} Removal Confirmation
+*@throws Will throw error if Id or imdbRating entered invalid
+*@throws Will throw error if mlab is down
+*@throws Will throw error if id is not in favourites list
 */
 exports.updaterating = function(id, imdbRating, callback) {
 	if (id === undefined || imdbRating === undefined) {
