@@ -11,10 +11,7 @@ server.use(restify.CORS())
 
 const defaultPort = 8080
 
-server.get('/help', restify.serveStatic({
-    'directory': './public/apidoc/',
-    'default': 'index.html'
-}))
+
 
 
 /**
@@ -151,6 +148,12 @@ server.put('/favourites/.*', (req, res) => {
 		}
 	})
 })
+
+
+server.get('/.*', restify.serveStatic({
+    'directory': './public/apidoc/',
+    'default': 'index.html'
+}))
 const port = process.env.PORT || defaultPort
 
 server.listen(port, function(err) {
