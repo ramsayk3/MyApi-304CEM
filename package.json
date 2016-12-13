@@ -1,7 +1,7 @@
 {
-  "name": "favourite film api",
+  "name": "304webapi",
   "version": "1.0.0",
-  "description": "This is my RESTful API - It uses OMDB and allows users to search, store, update and delete movies.",
+  "description": "nodejs api",
   "apidoc": {
   "title": "Film Favourite Documentation",
   "url" : "https://film304.herokuapp.com"
