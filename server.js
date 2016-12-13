@@ -12,8 +12,8 @@ server.use(restify.CORS())
 const defaultPort = 8080
 
 server.get('/help', restify.serveStatic({
-    'directory': './client',
-    'default': 'home.html'
+    'directory': './public/apidoc/',
+    'default': 'index.html'
 }))
 
 
