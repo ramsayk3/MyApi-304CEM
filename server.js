@@ -14,6 +14,7 @@ const defaultPort = 8080
 
 /**
 *@api {GET} /search [Search's OMDB]
+*@apiGroup User
 *@apiParam {String} [s] Users Search
 *@apiDescription This allows the user to search omdb
 *@apiSuccess Saw Movie Search
@@ -29,6 +30,7 @@ server.get('/search', function(req, res) {
 })
 /**
 *@api {GET} /movie [Search's OMDB using imdbID]
+*@apiGroup User
 *@apiParam {String} [i] imdbID Search
 *@apiParam {String} [n] Movie Text Search
 *@apiParam {String} [y] Movie Year
@@ -56,6 +58,7 @@ server.get('/movie', function(req, res) {
 })
 /**
 *@api {POST} /favourites [Add Movie]
+*@apiGroup User
 *@apiParam {String} [i] imdbID
 *@apiDescription This allows the user to add movie to favourites using imdbID
 *@apiSuccess OK imdbID Movie Added
@@ -83,6 +86,7 @@ server.post('/favourites', function(req, res) {
 })
 /**
 *@api {GET} /favourites [Retrieve Favourites List]
+*@apiGroup User
 *@apiDescription This allows the user get all movies in favourites list
 *@apiSuccess OK Favourites List
 */
@@ -97,6 +101,7 @@ server.get('/favourites', (req, res) => {
 })
 /**
 *@api {GET} /favourites/:id [Get Favourite by ID]
+*@apiGroup User
 *@apiDescription This allows the user to retrieve a movie from the favourites list using imdbID
 *@apiParam {String} [id] imdbID
 *@apiSuccess OK Specific Movie Data
@@ -114,6 +119,7 @@ server.get('/favourites/:id', (req, res) => {
 })
 /**
 *@api {DEL} /favourites/:id [Delete Favourite by ID]
+*@apiGroup User
 *@apiParam {String} [id] imdbID Search
 *@apiDescription This allows the user to delete a movie from the favourites list using imdbID
 *@apiSuccess OK Delete Specific Movie
@@ -130,6 +136,7 @@ server.del('/favourites/:id', (req, res) => {
 })
 /**
 *@api {PUT} /favourites/:id [Update imdbRating]
+*@apiGroup User
 *@apiParam {String} [id] imdbID
 *@apiParam {String} [rating] New imdbRating
 *@apiDescription This allows the user to update a movie rating from the favourites list using imdbID
