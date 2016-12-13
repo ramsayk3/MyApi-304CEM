@@ -1,5 +1,5 @@
 {
-  "name": "Favourite Film API",
+  "name": "favourite film api",
   "version": "1.0.0",
   "description": "This is my RESTful API - It uses OMDB and allows users to search, store, update and delete movies.",
   "apidoc": {
