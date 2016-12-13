@@ -1,0 +1,1 @@
+{  "title": "Film Favourite Documentation",  "url": "https://film304.herokuapp.com",  "name": "304webapi",  "version": "1.0.0",  "description": "nodejs api",  "sampleUrl": false,  "apidoc": "0.2.0",  "generator": {    "name": "apidoc",    "time": "2016-12-13T00:35:50.024Z",    "url": "http://apidocjs.com",    "version": "0.16.1"  }}

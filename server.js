@@ -151,7 +151,7 @@ server.put('/favourites/.*', (req, res) => {
 
 
 server.get('/.*', restify.serveStatic({
-    'directory': './public/apidoc/',
+    'directory': './apidoc/',
     'default': 'index.html'
 }))
 const port = process.env.PORT || defaultPort
