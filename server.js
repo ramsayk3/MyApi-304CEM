@@ -12,8 +12,6 @@ server.use(restify.CORS())
 const defaultPort = 8080
 
 
-
-
 /**
 *@api {GET} /search [Search's OMDB]
 *@apiParam {String} [s] Users Search
@@ -58,7 +56,7 @@ server.get('/movie', function(req, res) {
 })
 /**
 *@api {POST} /favourites [Add Movie]
-*@apiParam {String} [i] imdbID 
+*@apiParam {String} [i] imdbID
 *@apiDescription This allows the user to add movie to favourites using imdbID
 *@apiSuccess OK imdbID Movie Added
 *@apiSuccessExample {JSON} Success-Response:
@@ -100,7 +98,7 @@ server.get('/favourites', (req, res) => {
 /**
 *@api {GET} /favourites/:id [Get Favourite by ID]
 *@apiDescription This allows the user to retrieve a movie from the favourites list using imdbID
-*@apiParam {String} [id] imdbID 
+*@apiParam {String} [id] imdbID
 *@apiSuccess OK Specific Movie Data
 *@apiError Error Pass a valid id
 *@apiError Error Id Not In Database
@@ -118,7 +116,7 @@ server.get('/favourites/:id', (req, res) => {
 *@api {DEL} /favourites/:id [Delete Favourite by ID]
 *@apiParam {String} [id] imdbID Search
 *@apiDescription This allows the user to delete a movie from the favourites list using imdbID
-*@apiSuccess OK Delete Specific Movie 
+*@apiSuccess OK Delete Specific Movie
 *@apiError Error Pass a valid id
 */
 server.del('/favourites/:id', (req, res) => {
@@ -132,7 +130,7 @@ server.del('/favourites/:id', (req, res) => {
 })
 /**
 *@api {PUT} /favourites/:id [Update imdbRating]
-*@apiParam {String} [id] imdbID 
+*@apiParam {String} [id] imdbID
 *@apiParam {String} [rating] New imdbRating
 *@apiDescription This allows the user to update a movie rating from the favourites list using imdbID
 *@apiSuccess OK Update Movie Rating
@@ -151,8 +149,8 @@ server.put('/favourites/.*', (req, res) => {
 
 
 server.get('/.*', restify.serveStatic({
-    'directory': './apidoc/',
-    'default': 'index.html'
+	'directory': './apidoc/',
+	'default': 'index.html'
 }))
 const port = process.env.PORT || defaultPort
 
